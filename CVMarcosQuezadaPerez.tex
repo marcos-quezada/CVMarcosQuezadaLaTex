@@ -1,0 +1,71 @@
+\documentclass[letterpaper,MMMyyyy,nonstopmode]{resumecv}
+% Class options:
+% a4paper, letterpaper, nonstopmode, draftmode
+% MMMyyyy, ddMMMyyyy, MMMMyyyy, ddMMMMyyyy, yyyyMMdd, yyyyMM, yyyy
+
+\usepackage{xcolor}
+\usepackage{adjustbox}
+\usepackage{lipsum}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PREAMBLE.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% CV Info (to be customized).
+\newcommand{\CVAuthor}{Marcos Quezada Pérez}
+\newcommand{\CVTitle}{Marcos Quezada Pérez's CV}
+\newcommand{\CVNote}{CV compiled on {\today}}
+\newcommand{\CVWebpage}{http://www.example.com/~johndoe}
+
+% PDF settings and properties.
+\hypersetup{
+pdftitle={\CVTitle},
+pdfauthor={\CVAuthor},
+pdfsubject={\CVWebpage},
+pdfcreator={XeLaTeX},
+pdfproducer={},
+pdfkeywords={},
+unicode=true,
+bookmarks=true,
+bookmarksopen=true,
+pdfstartview=FitH,
+pdfpagelayout=OneColumn,
+pdfpagemode=UseOutlines,
+hidelinks,
+breaklinks}
+
+% Shorthand.
+\newcommand{\Code}[1]{\mbox{\textbf{#1}}}
+\newcommand{\CodeCommand}[1]{\mbox{\textbf{\textbackslash{#1}}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ACTUAL DOCUMENT.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%
+% TITLE BLOCK %
+%%%%%%%%%%%%%%%
+
+\begin{adjustbox}{minipage=0.25\textwidth-2\fboxsep-2\fboxrule,cfbox=teal 3pt}\raggedright\UseSubTitleFont
+\href{https://goo.gl/maps/dR9owVqLbk22}
+{Pionierstraße 37\newline
+Düsseldorf, Germany, 40215}\newline
+\href{mailto:quezad@gmail.com}
+{quezad@gmail.com}\newline
++49\,(015)\,203-136012\newline
+\href{\CVWebpage}
+{\url{\CVWebpage}}
+\end{adjustbox}
+\begin{minipage}{0.75\textwidth\raggedleft\UseTitleFont}\raggedleft
+\CVAuthor
+\end{minipage}
+\\[-2]
+\hfill{\color{teal}\vline width 0.005\textwidth}\hfill
+\begin{minipage}{0.995\textwidth\raggedright}
+\BigGap
+\lipsum
+\end{minipage}
+
+\end{document}
