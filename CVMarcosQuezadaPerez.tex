@@ -58,7 +58,7 @@ breaklinks}
 }
 
 \begin{filecontents}{ExperienceMap.tikz}
-    \begin{tikzpicture}[>=stealth'][x=20cm,y=9.5cm]
+\begin{tikzpicture}[>=stealth'][x=20cm,y=9.5cm]
 %---
 \foreach \i in {-4.25,0} {
     \draw[gray,very thin] (-10,\i) rectangle (10,\i+4.25);
@@ -68,6 +68,8 @@ breaklinks}
 \foreach \i in {-5.84,-2.68,0.48,3.64,6.8}{
     \draw[gray,very thin] (\i,-4.25) -- (\i,4.25);
 }
+
+\draw[white,fill=white] (-2,1) rectangle (2,-1);
 
 \node[rotate=90,font=\sffamily] at (-9.5,-2.5) {Jobs};
 \node[rotate=90,font=\sffamily] at (-9.5,2) {Skills};
@@ -112,7 +114,7 @@ breaklinks}
         };
 
         \node[state,
-            right of=drei01,
+            right of=CENTER,
             node distance=4cm,
             anchor=center] (Accenture)
         {%
