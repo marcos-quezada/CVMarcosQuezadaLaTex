@@ -11,7 +11,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 
-\ProvidesClass{simpleresumecv}[04.03.2019 Resume CV]
+\ProvidesClass{resumecv}[04.03.2019 Resume CV]
 
 \DeclareOption{a4paper}{\PassOptionsToClass{\CurrentOption}{article}}
 \DeclareOption{letterpaper}{\PassOptionsToClass{\CurrentOption}{article}}

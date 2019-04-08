@@ -1,4 +1,4 @@
-\documentclass[letterpaper,MMMyyyy,nonstopmode]{resumecv}
+\documentclass[letterpaper,landscape,MMMyyyy,nonstopmode]{resumecv}
 % Class options:
 % a4paper, letterpaper, nonstopmode, draftmode
 % MMMyyyy, ddMMMyyyy, MMMMyyyy, ddMMMMyyyy, yyyyMMdd, yyyyMM, yyyy
@@ -6,10 +6,26 @@
 \usepackage{xcolor}
 \usepackage{adjustbox}
 \usepackage{lipsum}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+\usetikzlibrary{arrows,automata}
+\usetikzlibrary{positioning}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PREAMBLE.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tikzset{
+    state/.style={
+           rectangle,
+           rounded corners,
+           draw=black, very thick,
+           minimum height=2em,
+           inner sep=2pt,
+           text centered,
+           },
+}
 
 % CV Info (to be customized).
 \newcommand{\CVAuthor}{Marcos Quezada Pérez}
@@ -48,24 +64,132 @@ breaklinks}
 % TITLE BLOCK %
 %%%%%%%%%%%%%%%
 
-\begin{adjustbox}{minipage=0.25\textwidth-2\fboxsep-2\fboxrule,cfbox=teal 3pt}\raggedright\UseSubTitleFont
-\href{https://goo.gl/maps/dR9owVqLbk22}
-{Pionierstraße 37\newline
-Düsseldorf, Germany, 40215}\newline
-\href{mailto:quezad@gmail.com}
-{quezad@gmail.com}\newline
-+49\,(015)\,203-136012\newline
-\href{\CVWebpage}
-{\url{\CVWebpage}}
-\end{adjustbox}
-\begin{minipage}{0.75\textwidth\raggedleft\UseTitleFont}\raggedleft
-\CVAuthor
+\begin{minipage}{0.25\textwidth\raggedleft}
+    \begin{minipage}[t][0.25\textheight][c]{\textwidth\UseTitleFont}
+        \CVAuthor
+    \end{minipage}
 \end{minipage}
-\\[-2]
-\hfill{\color{teal}\vline width 0.005\textwidth}\hfill
-\begin{minipage}{0.995\textwidth\raggedright}
-\BigGap
-\lipsum
+\begin{minipage}{0.75\textwidth}\UseSubSectionFont
+    \begin{tikzpicture}[->,>=stealth']
+        \node[state] (drei01){
+            \begin{tabular}{l}
+                \textbf{Java Backed Developer}\\
+                \Entry
+                \href{http://drei01.de}
+                {\textbf{Drei01 GmbH}}\\
+                Köln\\
+                \BulletItem
+                Microservices\\
+                \BulletItem
+                Rest Services\\
+                \BulletItem
+                NoSQL
+            \end{tabular}
+        };
+        
+        \node[state,
+        right of=drei01,
+        node distance=4cm,
+        anchor=center] (Accenture)
+        {%
+        \begin{tabular}{l}
+         \textbf{Consultant}\\
+         \Entry
+         \href{http://accenture.com}
+         {\textbf{Accenture}}\\
+         \BulletItem
+         Mexico City\\
+         \BulletItem
+         Los Angeles\\
+         \BulletItem
+         Oklahoma\\
+         \BulletItem
+         Boston
+        \end{tabular}
+        };
+       
+        \node[state,
+        right of=Accenture,
+        node distance=4cm,
+        anchor=center] (Quandoo)
+        {%
+        \begin{tabular}{l}
+         \textbf{Quandoo GmbH}\\
+         \Entry
+         \BulletItem
+         DevOps\\
+         \BulletItem
+         Solr\\
+         \BulletItem
+         Web Services
+        \end{tabular}
+        };
+
+        \node[state,
+        below of=Accenture,
+        yshift=-2.5cm,
+        anchor=center] (ACN_PROJECTS)
+        {%
+        \begin{tabular}{l}
+         \textbf{Beach Body}\\
+         \Entry
+         \SubBulletSymbol
+         Javascript
+         \SubBulletSymbol
+         ETL
+         \SubBulletSymbol
+         Data Analysis\\
+
+         \textbf{Disney}\\
+         \Entry
+         \SubBulletSymbol
+         Shell Script
+         \SubBulletSymbol
+         Video Processing
+         \SubBulletSymbol
+         BPM\\
+
+         \textbf{Devon Energy}\\
+         \Entry
+         \SubBulletSymbol
+         OData
+         \SubBulletSymbol
+         Data Services
+         \SubBulletSymbol
+         Rest API
+
+        \end{tabular}
+        };
+
+
+        % draw the paths and and print some Text below/above the graph
+        \path (Accenture) 	edge[bend left=20]  node[anchor=south,above]{2018}
+                                                node[anchor=north,below]{Now} (drei01)
+
+        (Accenture)     	edge node[anchor=south,above]{Projects} (ACN_PROJECTS)
+        (Quandoo)     	edge[bend left=20] node[anchor=south,above]{2017} node [anchor=north,below]{2018} (Accenture)
+
+    \end{tikzpicture}
 \end{minipage}
+
+%\begin{adjustbox}{minipage=0.25\textwidth-2\fboxsep-2\fboxrule,cfbox=teal 3pt}\raggedright\UseSubTitleFont
+%\href{https://goo.gl/maps/dR9owVqLbk22}
+%{Pionierstraße 37\newline
+%Düsseldorf, Germany, 40215}\newline
+%\href{mailto:quezad@gmail.com}
+%{quezad@gmail.com}\newline
+%+49\,(015)\,203-136012\newline
+%\href{\CVWebpage}
+%{\url{\CVWebpage}}
+%\end{adjustbox}
+%\begin{minipage}{0.75\textwidth\raggedleft\UseTitleFont}\raggedleft
+%\CVAuthor
+%\end{minipage}
+%\\[-2]
+%\hfill{\color{teal}\vline width 0.005\textwidth}\hfill
+%\begin{minipage}{0.995\textwidth\raggedright}
+%\BigGap
+%\lipsum
+%\end{minipage}
 
 \end{document}
