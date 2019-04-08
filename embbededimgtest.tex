@@ -1,0 +1,27 @@
+\documentclass[border=5mm]{standalone}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.7}
+
+\usepackage{tikzscale}
+
+\usepackage{filecontents}
+\begin{filecontents}{graph1.tikz}
+\begin{tikzpicture}
+\begin{axis}[width=\textwidth,ymax=3.5, ymin=-3.5]
+  \addplot[blue, domain=-5.8:5.8,samples=30] {sin((180/pi)*x)};
+\end{axis}
+\end{tikzpicture}
+\end{filecontents}
+
+
+\setlength{\fboxsep}{0pt} % Otherwise you introduce padding in the yellow box
+
+\begin{document}
+\colorbox{gray}{%
+\begin{minipage}{.33\textwidth}
+adfjk adfjk adfjk adfjk adfjk adfjk adfjk adfjk adfjk adfjk adfjk adfjk 
+\colorbox{yellow}{\includegraphics[width=\textwidth]{graph1.tikz}}
+\end{minipage}%
+}
+\end{document}

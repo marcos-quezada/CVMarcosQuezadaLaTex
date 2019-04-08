@@ -7,25 +7,17 @@
 \usepackage{adjustbox}
 \usepackage{lipsum}
 \usepackage{pgf}
-\usepackage{tikz}
 \usepackage[utf8]{inputenc}
+\usepackage{tikzscale}
+\usepackage{filecontents}
+\usepackage{tikz}
 \usetikzlibrary{arrows,automata}
 \usetikzlibrary{positioning}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PREAMBLE.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\tikzset{
-    state/.style={
-           rectangle,
-           rounded corners,
-           draw=black, very thick,
-           minimum height=2em,
-           inner sep=2pt,
-           text centered,
-           },
-}
 
 % CV Info (to be customized).
 \newcommand{\CVAuthor}{Marcos Quezada Pérez}
@@ -54,6 +46,154 @@ breaklinks}
 \newcommand{\Code}[1]{\mbox{\textbf{#1}}}
 \newcommand{\CodeCommand}[1]{\mbox{\textbf{\textbackslash{#1}}}}
 
+\tikzset{
+    state/.style={
+           rectangle,
+           rounded corners,
+           draw=black, very thick,
+           minimum height=2em,
+           inner sep=2pt,
+           text centered,
+           },
+}
+
+\begin{filecontents}{ExperienceMap.tikz}
+    \begin{tikzpicture}[>=stealth'][x=20cm,y=9.5cm]
+%---
+\foreach \i in {-4.25,0} {
+    \draw[gray,very thin] (-10,\i) rectangle (10,\i+4.25);
+    \draw[gray,very thin] (-10,\i) rectangle (-9,\i+4.25);
+}
+
+\foreach \i in {-5.84,-2.68,0.48,3.64,6.8}{
+    \draw[gray,very thin] (\i,-4.25) -- (\i,4.25);
+}
+
+\node[rotate=90,font=\sffamily] at (-9.5,-2.5) {Jobs};
+\node[rotate=90,font=\sffamily] at (-9.5,2) {Skills};
+
+\node[font=\sffamily] at (-7.5,4) {2018};
+\node[font=\sffamily] at (-4.34,4) {2017};
+\node[font=\sffamily] at (-1.18,4) {2016};
+\node[font=\sffamily] at (1.98,4) {2013};
+\node[font=\sffamily] at (5.14,4) {2007};
+\node[font=\sffamily] at (8.3,4) {2006};
+
+%\draw[step=1cm,gray,very thin] (-10,-4.25) grid (10,4.25);
+
+        \node[state, fill=white] (CENTER) at (0,0){
+            \begin{tabular}{l}
+                \textbf{Software Engineer}
+            \end{tabular}
+        };
+
+        \node[state] (DREI01_JOB) at (-7.5,3){
+            \begin{tabular}{l}
+                \textbf{Java Backed Developer} \\
+                \Entry
+                \href{http://drei01.de}
+                {\textbf{Drei01 GmbH}}         \\
+                Köln                           
+            \end{tabular}
+        };
+
+        \node[state, 
+        below of=DREI01_JOB, 
+        yshift=-5cm, 
+        anchor=center] (DREI01_SKILL){
+            \begin{tabular}{l}
+                \BulletItem
+                Microservices                  \\
+                \BulletItem
+                Rest Services                  \\
+                \BulletItem
+                NoSQL
+            \end{tabular}
+        };
+
+        \node[state,
+            right of=drei01,
+            node distance=4cm,
+            anchor=center] (Accenture)
+        {%
+            \begin{tabular}{l}
+                \textbf{Consultant}  \\
+                \Entry
+                \href{http://accenture.com}
+                {\textbf{Accenture}} \\
+                \BulletItem
+                Mexico City          \\
+                \BulletItem
+                Los Angeles          \\
+                \BulletItem
+                Oklahoma             \\
+                \BulletItem
+                Boston
+            \end{tabular}
+        };
+
+        \node[state,
+            right of=Accenture,
+            node distance=4cm,
+            anchor=center] (Quandoo)
+        {%
+            \begin{tabular}{l}
+                \textbf{Quandoo GmbH} \\
+                \Entry
+                \BulletItem
+                DevOps                \\
+                \BulletItem
+                Solr                  \\
+                \BulletItem
+                Web Services
+            \end{tabular}
+        };
+
+        \node[state,
+            below of=Accenture,
+            yshift=-2.5cm,
+            anchor=center] (ACN_PROJECTS)
+        {%
+            \begin{tabular}{l}
+                \textbf{Beach Body}   \\
+                \Entry
+                \SubBulletSymbol
+                Javascript
+                \SubBulletSymbol
+                ETL
+                \SubBulletSymbol
+                Data Analysis         \\
+
+                \textbf{Disney}       \\
+                \Entry
+                \SubBulletSymbol
+                Shell Script
+                \SubBulletSymbol
+                Video Processing
+                \SubBulletSymbol
+                BPM                   \\
+
+                \textbf{Devon Energy} \\
+                \Entry
+                \SubBulletSymbol
+                OData
+                \SubBulletSymbol
+                Data Services
+                \SubBulletSymbol
+                Rest API
+            \end{tabular}
+        };
+
+        % draw the paths and and print some Text below/above the graph
+        \path (CENTER) 	edge[->, bend left=20] (DREI01_JOB)
+        (CENTER)     	edge[->, bend right=20] (DREI01_SKILL)
+        (Quandoo)     	edge (Accenture);
+
+
+
+    \end{tikzpicture}
+\end{filecontents}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% ACTUAL DOCUMENT.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -64,112 +204,27 @@ breaklinks}
 % TITLE BLOCK %
 %%%%%%%%%%%%%%%
 
-\begin{minipage}{0.25\textwidth\raggedleft}
+\begin{minipage}{0.25\textwidth}
     \begin{minipage}[t][0.25\textheight][c]{\textwidth\UseTitleFont}
         \CVAuthor
     \end{minipage}
+    \begin{minipage}[t][0.20\textheight][c]{\textwidth\UseTitleFont}
+        \CVAuthor
+    \end{minipage}
+    \begin{minipage}[t][0.54\textheight][c]{\textwidth\UseTitleFont}
+        \CVAuthor
+    \end{minipage}
 \end{minipage}
-\begin{minipage}{0.75\textwidth}\UseSubSectionFont
-    \begin{tikzpicture}[->,>=stealth']
-        \node[state] (drei01){
-            \begin{tabular}{l}
-                \textbf{Java Backed Developer}\\
-                \Entry
-                \href{http://drei01.de}
-                {\textbf{Drei01 GmbH}}\\
-                Köln\\
-                \BulletItem
-                Microservices\\
-                \BulletItem
-                Rest Services\\
-                \BulletItem
-                NoSQL
-            \end{tabular}
-        };
-        
-        \node[state,
-        right of=drei01,
-        node distance=4cm,
-        anchor=center] (Accenture)
-        {%
-        \begin{tabular}{l}
-         \textbf{Consultant}\\
-         \Entry
-         \href{http://accenture.com}
-         {\textbf{Accenture}}\\
-         \BulletItem
-         Mexico City\\
-         \BulletItem
-         Los Angeles\\
-         \BulletItem
-         Oklahoma\\
-         \BulletItem
-         Boston
-        \end{tabular}
-        };
-       
-        \node[state,
-        right of=Accenture,
-        node distance=4cm,
-        anchor=center] (Quandoo)
-        {%
-        \begin{tabular}{l}
-         \textbf{Quandoo GmbH}\\
-         \Entry
-         \BulletItem
-         DevOps\\
-         \BulletItem
-         Solr\\
-         \BulletItem
-         Web Services
-        \end{tabular}
-        };
-
-        \node[state,
-        below of=Accenture,
-        yshift=-2.5cm,
-        anchor=center] (ACN_PROJECTS)
-        {%
-        \begin{tabular}{l}
-         \textbf{Beach Body}\\
-         \Entry
-         \SubBulletSymbol
-         Javascript
-         \SubBulletSymbol
-         ETL
-         \SubBulletSymbol
-         Data Analysis\\
-
-         \textbf{Disney}\\
-         \Entry
-         \SubBulletSymbol
-         Shell Script
-         \SubBulletSymbol
-         Video Processing
-         \SubBulletSymbol
-         BPM\\
-
-         \textbf{Devon Energy}\\
-         \Entry
-         \SubBulletSymbol
-         OData
-         \SubBulletSymbol
-         Data Services
-         \SubBulletSymbol
-         Rest API
-
-        \end{tabular}
-        };
-
-
-        % draw the paths and and print some Text below/above the graph
-        \path (Accenture) 	edge[bend left=20]  node[anchor=south,above]{2018}
-                                                node[anchor=north,below]{Now} (drei01)
-
-        (Accenture)     	edge node[anchor=south,above]{Projects} (ACN_PROJECTS)
-        (Quandoo)     	edge[bend left=20] node[anchor=south,above]{2017} node [anchor=north,below]{2018} (Accenture)
-
-    \end{tikzpicture}
+\begin{minipage}{0.75\textwidth}
+    \begin{minipage}[t][0.45\textheight][c]{\textwidth\UseSubSectionFont}
+        \includegraphics{ExperienceMap.tikz}
+    \end{minipage}
+    \begin{minipage}[t][0.20\textheight][c]{\textwidth\UseTitleFont}
+        \CVAuthor
+    \end{minipage}
+    \begin{minipage}[t][0.34\textheight][c]{\textwidth\UseTitleFont}
+        \CVAuthor
+    \end{minipage}
 \end{minipage}
 
 %\begin{adjustbox}{minipage=0.25\textwidth-2\fboxsep-2\fboxrule,cfbox=teal 3pt}\raggedright\UseSubTitleFont
