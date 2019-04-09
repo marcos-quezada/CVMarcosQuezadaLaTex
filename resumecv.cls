@@ -185,16 +185,16 @@ BoldItalicFont=FreeSerifBoldItalic]
 
 % Headers and footers: Blank header, page number in footer.
 \AtEndDocument{\null\label{LastPage}}
-\newcommand{\PageKOfN}{{\UseHeaderFooterFont{Page}~\thepage~of~\pageref{LastPage}}}
+%\newcommand{\PageKOfN}{{\UseHeaderFooterFont{Page}~\thepage~of~\pageref{LastPage}}}
 \newcommand{\DraftStamp}{{\UseHeaderFooterFont\color{red}DRAFT~\Timestamp}}
 
 \ifnum\TypesetInDraftMode=0
 \newcommand{\HeaderText}{}
-\newcommand{\FooterText}{\hfill\PageKOfN\hfill}
+%\newcommand{\FooterText}{\hfill\PageKOfN\hfill}
 \else
 \newcommand{\HeaderText}{}
 \newcommand{\FooterText}{\null\hphantom{\DraftStamp}\hfill%
-\PageKOfN\hfill%
+%\PageKOfN\hfill%
 \DraftStamp\null}
 \fi
 
@@ -205,6 +205,7 @@ BoldItalicFont=FreeSerifBoldItalic]
 \def\@evenfoot{\FooterText}}
 
 \pagestyle{plain}
+
 
 % Paragraph style.
 \setlength{\parindent}{0in} % No indentation at the beginning of each paragraph.
