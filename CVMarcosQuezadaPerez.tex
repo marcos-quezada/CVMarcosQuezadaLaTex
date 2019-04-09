@@ -11,9 +11,9 @@
 \usepackage{tikzscale}
 \usepackage{filecontents}
 \usepackage{tikz}
-\usetikzlibrary{arrows,automata}
-\usetikzlibrary{positioning}
-
+\usetikzlibrary{arrows,automata,positioning,calc,trees,positioning,chains,shapes.geometric,%
+    decorations.pathreplacing,decorations.pathmorphing,decorations.pathreplacing,shapes,%
+    matrix,shapes.symbols}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PREAMBLE.
@@ -50,15 +50,20 @@ breaklinks}
     state/.style={
            rectangle,
            rounded corners,
-           draw=black, very thick,
+           draw=teal, very thick,
            minimum height=2em,
-           inner sep=2pt,
+           inner sep=0.5pt,
            text centered,
+           text width=3cm,
+           font=\UseNoteFont
            },
 }
 
 \begin{filecontents}{ExperienceMap.tikz}
-\begin{tikzpicture}[>=stealth'][x=20cm,y=9.5cm]
+\begin{tikzpicture}[>=stealth',%
+    decoration={brace},%
+    tuborg/.style={draw=teal, decorate},%
+    tubnode/.style={midway, right=2pt},][x=20cm,y=9.5cm]
 %---
 \foreach \i in {-4.25,0} {
     \draw[gray,very thin] (-10,\i) rectangle (10,\i+4.25);
@@ -71,8 +76,8 @@ breaklinks}
 
 \draw[white,fill=white] (-2,1) rectangle (2,-1);
 
-\node[rotate=90,font=\sffamily] at (-9.5,-2.5) {Jobs};
-\node[rotate=90,font=\sffamily] at (-9.5,2) {Skills};
+\node[rotate=90,font=\sffamily] at (-9.5,-2.5) {Tasks};
+\node[rotate=90,font=\sffamily] at (-9.5,2) {Jobs};
 
 \node[font=\sffamily] at (-7.5,4) {2018};
 \node[font=\sffamily] at (-4.34,4) {2017};
@@ -89,12 +94,12 @@ breaklinks}
             \end{tabular}
         };
 
-        \node[state] (DREI01_JOB) at (-7.5,3){
+        \node[state] (DREI01_JOB) at (-7.42,3){
             \begin{tabular}{l}
-                \textbf{Java Backed Developer} \\
                 \Entry
+                Java Backed Developer\\
                 \href{http://drei01.de}
-                {\textbf{Drei01 GmbH}}         \\
+                {Drei01 GmbH}\\
                 Köln                           
             \end{tabular}
         };
@@ -102,7 +107,7 @@ breaklinks}
         \node[state, 
         below of=DREI01_JOB, 
         yshift=-5cm, 
-        anchor=center] (DREI01_SKILL){
+        anchor=center] (DREI01_ASSGMNT){
             \begin{tabular}{l}
                 \BulletItem
                 Microservices                  \\
@@ -188,10 +193,12 @@ breaklinks}
 
         % draw the paths and and print some Text below/above the graph
         \path (CENTER) 	edge[->, bend left=20] (DREI01_JOB)
-        (CENTER)     	edge[->, bend right=20] (DREI01_SKILL)
+        (CENTER)     	edge[->, bend right=20] (DREI01_ASSGMNT)
         (Quandoo)     	edge (Accenture);
 
-
+        % Now, let us add some braces. 
+        \draw[tuborg, thick, decoration={brace, mirror, raise=0.49cm}, decorate] 
+        (-10,-3.75) -- (10,-3.75) node[below, midway,anchor=north,yshift=-0.55cm,font=\UseNoteFont]  {My Job @ ...};
 
     \end{tikzpicture}
 \end{filecontents}
