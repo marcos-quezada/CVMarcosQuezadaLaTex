@@ -175,6 +175,7 @@ BoldItalicFont=FreeSerifBoldItalic]
 \newcommand{\UseSectionFont}{\UseHeadingFont\fontsize{9pt}{11pt}\selectfont\bfseries}
 \newcommand{\UseSubSectionFont}{\UseHeadingFont\fontsize{8.6pt}{10.3pt}\selectfont\bfseries}
 \newcommand{\UseDetailFont}{\normalfont\fontsize{8.6pt}{10.3pt}\selectfont}
+\newcommand{\UseWhiteNoteFont}{\UseHeadingFont\fontsize{8pt}{9.6pt}\selectfont\color{white}}
 
 % Symbols (Unicode).
 % See: https://unicode-table.com/en/
@@ -191,6 +192,7 @@ BoldItalicFont=FreeSerifBoldItalic]
 \ifnum\TypesetInDraftMode=0
 \newcommand{\HeaderText}{}
 %\newcommand{\FooterText}{\hfill\PageKOfN\hfill}
+\newcommand{\FooterText}{\hfill\hfill}
 \else
 \newcommand{\HeaderText}{}
 \newcommand{\FooterText}{\null\hphantom{\DraftStamp}\hfill%
@@ -230,10 +232,10 @@ BoldItalicFont=FreeSerifBoldItalic]
 
 % Macro: SubTitle (personal information below name).
 \newenvironment{SubTitle}
-{\par\vspace{0.15\baselineskip}%
-\begin{fmpage}{0.3\textwidth}\raggedright%
+{\par\vspace{0.25\baselineskip}%
+\begingroup\centering%
 \UseSubTitleFont}
-{\par\end{fmpage}\par}
+{\par\endgroup\par}
 
 % Macro: Title (name).
 \newenvironment{Title}[1]{%
@@ -275,10 +277,12 @@ BoldItalicFont=FreeSerifBoldItalic]
 \newcommand{\BigGap}{\par\vspace{2.25mm}\par}
 
 % Macro: Section (new section for Education, Research Experience, etc.).
-\newcommand{\Section}[3]
-{\par\pdfbookmark[2]{#2}{#3}%
-\item[\smash{\parbox[t]{1.2in}{\UseSectionFont\raggedright\MakeUppercase{#1}}}]%
-\par}
+\newcommand{\Section}[1]
+{
+    \par
+    {\UseSubSectionFont\raggedright\MakeUppercase{#1}}%
+    \par
+}
 
 % Macro: SubSection.
 \newcommand{\SubSection}[3]

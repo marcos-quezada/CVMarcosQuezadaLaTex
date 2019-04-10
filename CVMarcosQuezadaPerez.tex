@@ -4,12 +4,11 @@
 % MMMyyyy, ddMMMyyyy, MMMMyyyy, ddMMMMyyyy, yyyyMMdd, yyyyMM, yyyy
 
 \usepackage{xcolor}
-\usepackage{adjustbox}
-\usepackage{lipsum}
+\usepackage{tcolorbox}
 \usepackage{pgf}
 \usepackage[utf8]{inputenc}
 \usepackage{tikzscale}
-\usepackage{filecontents}
+%\usepackage{filecontents}
 \usepackage{tikz}
 \usetikzlibrary{arrows,automata,positioning,calc,trees,positioning,chains,shapes.geometric,%
     decorations.pathreplacing,decorations.pathmorphing,decorations.pathreplacing,shapes,%
@@ -48,160 +47,29 @@ breaklinks}
 
 \tikzset{
     state/.style={
-           rectangle,
-           rounded corners,
-           draw=teal, very thick,
-           minimum height=2em,
-           inner sep=0.5pt,
-           text centered,
-           text width=3cm,
-           font=\UseNoteFont
-           },
+        rectangle,
+        rounded corners,
+        draw=teal, very thick,
+        minimum height=2em,
+        inner sep=0.5pt,
+        align=left,
+        text width=3cm,
+        font=\UseNoteFont
+        },
 }
 
-\begin{filecontents}{ExperienceMap.tikz}
-\begin{tikzpicture}[>=stealth',%
-    decoration={brace},%
-    tuborg/.style={draw=teal, decorate},%
-    tubnode/.style={midway, right=2pt},][x=20cm,y=9.5cm]
-%---
-\foreach \i in {-4.25,0} {
-    \draw[gray,very thin] (-10,\i) rectangle (10,\i+4.25);
-    \draw[gray,very thin] (-10,\i) rectangle (-9,\i+4.25);
+\newtcolorbox{skillbox}[1]{
+    arc=0pt,
+    boxrule=0pt,
+    colback=teal,
+    width=#1\textwidth,
+    fontupper=\UseWhiteNoteFont,
+    left=0mm,
+    top=0mm,
+    bottom=1mm,
+    enlarge bottom finally by=-1mm
 }
 
-\foreach \i in {-5.84,-2.68,0.48,3.64,6.8}{
-    \draw[gray,very thin] (\i,-4.25) -- (\i,4.25);
-}
-
-\draw[white,fill=white] (-2,1) rectangle (2,-1);
-
-\node[rotate=90,font=\sffamily] at (-9.5,-2.5) {Tasks};
-\node[rotate=90,font=\sffamily] at (-9.5,2) {Jobs};
-
-\node[font=\sffamily] at (-7.5,4) {2018};
-\node[font=\sffamily] at (-4.34,4) {2017};
-\node[font=\sffamily] at (-1.18,4) {2016};
-\node[font=\sffamily] at (1.98,4) {2013};
-\node[font=\sffamily] at (5.14,4) {2007};
-\node[font=\sffamily] at (8.3,4) {2006};
-
-%\draw[step=1cm,gray,very thin] (-10,-4.25) grid (10,4.25);
-
-        \node[state, fill=white] (CENTER) at (0,0){
-            \begin{tabular}{l}
-                \textbf{Software Engineer}
-            \end{tabular}
-        };
-
-        \node[state] (DREI01_JOB) at (-7.42,3){
-            \begin{tabular}{l}
-                \Entry
-                Java Backed Developer\\
-                \href{http://drei01.de}
-                {Drei01 GmbH}\\
-                Köln                           
-            \end{tabular}
-        };
-
-        \node[state, 
-        below of=DREI01_JOB, 
-        yshift=-5cm, 
-        anchor=center] (DREI01_ASSGMNT){
-            \begin{tabular}{l}
-                \BulletItem
-                Microservices                  \\
-                \BulletItem
-                Rest Services                  \\
-                \BulletItem
-                NoSQL
-            \end{tabular}
-        };
-
-        \node[state,
-            right of=CENTER,
-            node distance=4cm,
-            anchor=center] (Accenture)
-        {%
-            \begin{tabular}{l}
-                \textbf{Consultant}  \\
-                \Entry
-                \href{http://accenture.com}
-                {\textbf{Accenture}} \\
-                \BulletItem
-                Mexico City          \\
-                \BulletItem
-                Los Angeles          \\
-                \BulletItem
-                Oklahoma             \\
-                \BulletItem
-                Boston
-            \end{tabular}
-        };
-
-        \node[state,
-            right of=Accenture,
-            node distance=4cm,
-            anchor=center] (Quandoo)
-        {%
-            \begin{tabular}{l}
-                \textbf{Quandoo GmbH} \\
-                \Entry
-                \BulletItem
-                DevOps                \\
-                \BulletItem
-                Solr                  \\
-                \BulletItem
-                Web Services
-            \end{tabular}
-        };
-
-        \node[state,
-            below of=Accenture,
-            yshift=-2.5cm,
-            anchor=center] (ACN_PROJECTS)
-        {%
-            \begin{tabular}{l}
-                \textbf{Beach Body}   \\
-                \Entry
-                \SubBulletSymbol
-                Javascript
-                \SubBulletSymbol
-                ETL
-                \SubBulletSymbol
-                Data Analysis         \\
-
-                \textbf{Disney}       \\
-                \Entry
-                \SubBulletSymbol
-                Shell Script
-                \SubBulletSymbol
-                Video Processing
-                \SubBulletSymbol
-                BPM                   \\
-
-                \textbf{Devon Energy} \\
-                \Entry
-                \SubBulletSymbol
-                OData
-                \SubBulletSymbol
-                Data Services
-                \SubBulletSymbol
-                Rest API
-            \end{tabular}
-        };
-
-        % draw the paths and and print some Text below/above the graph
-        \path (CENTER) 	edge[->, bend left=20] (DREI01_JOB)
-        (CENTER)     	edge[->, bend right=20] (DREI01_ASSGMNT)
-        (Quandoo)     	edge (Accenture);
-
-        % Now, let us add some braces. 
-        \draw[tuborg, thick, decoration={brace, mirror, raise=0.49cm}, decorate] 
-        (-10,-3.75) -- (10,-3.75) node[below, midway,anchor=north,yshift=-0.55cm,font=\UseNoteFont]  {My Job @ ...};
-
-    \end{tikzpicture}
-\end{filecontents}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% ACTUAL DOCUMENT.
@@ -213,26 +81,112 @@ breaklinks}
 % TITLE BLOCK %
 %%%%%%%%%%%%%%%
 
-\begin{minipage}{0.25\textwidth}
+\begin{minipage}{0.24\textwidth}
     \begin{minipage}[t][0.25\textheight][c]{\textwidth\UseTitleFont}
         \CVAuthor
     \end{minipage}
-    \begin{minipage}[t][0.20\textheight][c]{\textwidth\UseTitleFont}
-        \CVAuthor
+    \begin{minipage}[c][0.20\textheight][c]{\textwidth\UseSubTitleFont}
+        \href{https://goo.gl/maps/dR9owVqLbk22}
+        {Pionierstraße 37\newline
+        Düsseldorf, Germany, 40215}\newline
+        \href{mailto:quezad@gmail.com}
+        {quezad@gmail.com}\newline
+        +49\,(015)\,203-136012\newline
+        \href{\CVWebpage}
+        {\url{\CVWebpage}}
     \end{minipage}
-    \begin{minipage}[t][0.54\textheight][c]{\textwidth\UseTitleFont}
-        \CVAuthor
+    \begin{minipage}[t][0.54\textheight][c]{\textwidth\UseNoteFont}
+        \begin{skillbox}{0.9}
+            \textbf{Java / J2EE}
+        \end{skillbox}
+        \begin{skillbox}{0.81}
+            \textbf{C\#}
+        \end{skillbox}
+        \begin{skillbox}{0.9}
+            \textbf{C / C++}
+        \end{skillbox}
+        \begin{skillbox}{0.36}
+            \textbf{Python}
+        \end{skillbox}
+        \begin{skillbox}{0.54}
+            \textbf{.NET}
+        \end{skillbox}
+        \begin{skillbox}{0.18}
+            \textbf{groovy}
+        \end{skillbox}
+        \begin{skillbox}{0.27}
+            \textbf{Objective-C}
+        \end{skillbox}
+        \begin{skillbox}{0.9}
+            \textbf{JavaScript}
+        \end{skillbox}
     \end{minipage}
-\end{minipage}
+\end{minipage}\hfill{\color{teal}\vline width 0.005\textwidth}\hfill
 \begin{minipage}{0.75\textwidth}
-    \begin{minipage}[t][0.45\textheight][c]{\textwidth\UseSubSectionFont}
+    \begin{minipage}[t][0.46\textheight][c]{\textwidth\UseSubSectionFont}
         \includegraphics{ExperienceMap.tikz}
     \end{minipage}
-    \begin{minipage}[t][0.20\textheight][c]{\textwidth\UseTitleFont}
-        \CVAuthor
+    \begin{minipage}[t][0.29\textheight][c]{\textwidth\UseSubSectionFont}
+        \Entry
+        \Section{Education\, Certificates \& Languages}
+        \BigGap
+        \DatestampY{2000} --
+        \DatestampY{2005}
+        \begin{Detail}
+            IPN – Escuela Superior de Cómputo  
+            Mexico City, Mexico\\
+            B Eng in Computer Science\\
+            Final Project: Interactive 3D Software simulated wind tunnel. Multiple views, dynamic obstacle placements and analytic features
+        \end{Detail}
+        \Gap
+        \DatestampY{2006}
+        \begin{Detail}
+            Sun Certified Java Programmer, Java Standard Edition 5.0            
+        \end{Detail}
+        \Gap
+        \DatestampY{2013}
+        \begin{Detail}
+            TOGAF 9 Foundations level \,\SubBulletSymbol\, Registration Number: 77670            
+        \end{Detail}
+        \Gap
+        \begin{Detail}
+            \BulletSymbol$\-$
+            Spanish: Native language.
+
+            \Gap
+            \BulletSymbol$\-$
+            English: Fluent.
+
+            \Gap
+            \BulletSymbol$\-$
+            German: Basic.
+        \end{Detail}
     \end{minipage}
-    \begin{minipage}[t][0.34\textheight][c]{\textwidth\UseTitleFont}
-        \CVAuthor
+    \begin{minipage}[t][0.24\textheight][c]{\textwidth\UseSubSectionFont}
+        \textbf{Frameworks:} 
+        \begin{Detail}
+            Spring MVC framework \,\SubBulletSymbol\, Facebook Graph API \,\SubBulletSymbol\, Hibernate \,\SubBulletSymbol\, Oracle ADF \,\SubBulletSymbol\, SAP Master Data Management \,\SubBulletSymbol\, Oracle SOA Suite
+        \end{Detail}
+        \Gap
+        \textbf{Database Management Systems:}
+        \begin{Detail}
+            Postgresql Server \,\SubBulletSymbol\, Microsoft SQL Server \,\SubBulletSymbol\, Oracle Database \,\SubBulletSymbol\, MySQL \,\SubBulletSymbol\, DB2
+        \end{Detail}
+        \Gap
+        \textbf{Webtechnologies:}
+        \begin{Detail}
+            Tomcat Application Server \,\SubBulletSymbol\, Solr \,\SubBulletSymbol\, Windows Application Server \,\SubBulletSymbol\, Websphere Application Server \,\SubBulletSymbol\, OLingo OData API \,\SubBulletSymbol\, JBoss \,\SubBulletSymbol\, Weblogic Application Server \,\SubBulletSymbol\, IBM Websphere Commerce \,\SubBulletSymbol\, PHP \,\SubBulletSymbol\, JavaScript \,\SubBulletSymbol\, XSLT \,\SubBulletSymbol\, XML (XSD) Schema \,\SubBulletSymbol\, Ajax (Direct Web Remoting, JQuery) \,\SubBulletSymbol\, HTML/HTML5 \,\SubBulletSymbol\, CSS/CSS3
+        \end{Detail}
+        \Gap
+        \textbf{Cloud Technologies:}
+        \begin{Detail}
+            Amazon Web Services \,\SubBulletSymbol\, Salesforce.com \,\SubBulletSymbol\, Informatica \,\SubBulletSymbol\, GoCD (Continuous Delivery)
+        \end{Detail}
+        \Gap
+        \textbf{Development Tools:}
+        \begin{Detail}
+            git \,\SubBulletSymbol\, Shell Script \,\SubBulletSymbol\, PowerShell \,\SubBulletSymbol\, JMeter \,\SubBulletSymbol\, Oracle Identity Manager \,\SubBulletSymbol\, Ansible
+        \end{Detail}
     \end{minipage}
 \end{minipage}
 
