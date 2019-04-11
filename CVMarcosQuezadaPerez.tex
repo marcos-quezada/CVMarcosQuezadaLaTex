@@ -22,6 +22,7 @@
 \newcommand{\CVAuthor}{Marcos Quezada Pérez}
 \newcommand{\CVTitle}{Marcos Quezada Pérez's CV}
 \newcommand{\CVNote}{CV compiled on {\today}}
+\newcommand{\CompanyName}{Acme GmbH}
 \newcommand{\CVWebpage}{http://www.example.com/~johndoe}
 
 % PDF settings and properties.
@@ -88,6 +89,7 @@ breaklinks}
             \Name{Quezada}
             \Name{Pérez}
             \BigGap
+            \BigGap
             \begin{NerdNote}
                 \SubBulletSymbol$\-$
                 Analitic Thinker\\
@@ -96,7 +98,7 @@ breaklinks}
             \end{NerdNote}
         \end{flushleft}
     \end{minipage}
-    \begin{minipage}[c][0.20\textheight][c]{\textwidth\UseSubTitleFont}
+    \begin{minipage}[c][0.20\textheight][b]{\textwidth\UseSubTitleFont}
         \href{https://goo.gl/maps/dR9owVqLbk22}
         {Pionierstraße 37\newline
         Düsseldorf, Germany, 40215}\newline
@@ -137,66 +139,82 @@ breaklinks}
     \begin{minipage}[t][0.46\textheight][t]{\textwidth\UseSubSectionFont}
         \includegraphics{ExperienceMap.tikz}
     \end{minipage}
-    \begin{minipage}[t][0.29\textheight][c]{\textwidth\UseSubSectionFont}
-        \Entry
-        \Section{Education\, Certificates \& Languages}
-        \BigGap
-        \DatestampY{2000} --
-        \DatestampY{2005}
-        \begin{Detail}
-            IPN – Escuela Superior de Cómputo  
-            Mexico City, Mexico\\
-            B Eng in Computer Science\\
-            Final Project: Interactive 3D Software simulated wind tunnel. Multiple views, dynamic obstacle placements and analytic features
-        \end{Detail}
-        \Gap
-        \DatestampY{2006}
-        \begin{Detail}
-            Sun Certified Java Programmer, Java Standard Edition 5.0            
-        \end{Detail}
-        \Gap
-        \DatestampY{2013}
-        \begin{Detail}
-            TOGAF 9 Foundations level \,\SubBulletSymbol\, Registration Number: 77670            
-        \end{Detail}
-        \Gap
-        \begin{Detail}
-            \BulletSymbol$\-$
-            Spanish: Native language.
-
-            \Gap
-            \BulletSymbol$\-$
-            English: Fluent.
-
-            \Gap
-            \BulletSymbol$\-$
-            German: Basic.
-        \end{Detail}
-    \end{minipage}
     \begin{minipage}[t][0.24\textheight][c]{\textwidth\UseSubSectionFont}
-        \textbf{Frameworks:} 
+        \begin{minipage}[t]{0.45\textwidth}
+            \Section{Education}
+            \BigGap
+            \DatestampY{2000} --
+            \DatestampY{2005}
+            \Gap
+            \begin{Detail}
+                IPN – Escuela Superior de Cómputo  
+                Mexico City, Mexico\\
+                B Eng in Computer Science\\
+                Final Project: Interactive 3D Software simulated wind tunnel. Multiple views, dynamic obstacle placements and analytic features
+            \end{Detail}
+        \end{minipage}\hfill
+        \begin{minipage}[t]{0.45\textwidth}
+            \Section{Certificates}
+            \BigGap
+            \DatestampY{2006}
+            \Gap
+            \begin{Detail}
+                Sun Certified Java Programmer, Java Standard Edition 5.0            
+            \end{Detail}
+            \BigGap
+            \DatestampY{2013}
+            \Gap
+            \begin{Detail}
+                TOGAF 9 Foundations level \,\SubBulletSymbol\, Registration Number: 77670            
+            \end{Detail}
+        \end{minipage}
+        \BigGap
+        \BigGap
+        \begin{minipage}[c]{\textwidth}
+            \Section{Languages}
+            \BigGap
+            \begin{Detail}
+                \BulletSymbol$\-$
+                Spanish: Native language.
+    
+                \Gap
+                \BulletSymbol$\-$
+                English: Fluent.
+    
+                \Gap
+                \BulletSymbol$\-$
+                German: Basic.
+            \end{Detail}
+        \end{minipage}
+    \end{minipage}
+    \begin{minipage}[b][0.27\textheight][b]{\textwidth\UseSubSectionFont}
         \begin{Detail}
-            Spring MVC framework \,\SubBulletSymbol\, Facebook Graph API \,\SubBulletSymbol\, Hibernate \,\SubBulletSymbol\, Oracle ADF \,\SubBulletSymbol\, SAP Master Data Management \,\SubBulletSymbol\, Oracle SOA Suite
+            \settowidth{\mylen}{-----Frameworks: }
+            \indentedDetail{\textbf{Frameworks: }Spring MVC framework \,\SubBulletSymbol\, Facebook Graph API \,\SubBulletSymbol\, Hibernate \,\SubBulletSymbol\, Oracle ADF \,\SubBulletSymbol\, SAP Master Data Management \,\SubBulletSymbol\, Oracle SOA Suite}
         \end{Detail}
-        \Gap
-        \textbf{Database Management Systems:}
+        \BigGap
         \begin{Detail}
-            Postgresql Server \,\SubBulletSymbol\, Microsoft SQL Server \,\SubBulletSymbol\, Oracle Database \,\SubBulletSymbol\, MySQL \,\SubBulletSymbol\, DB2
+            \settowidth{\mylen}{-----Database Management Systems:}
+            \indentedDetail{\textbf{Database Management Systems: }Postgresql Server \,\SubBulletSymbol\, Microsoft SQL Server \,\SubBulletSymbol\, Oracle Database \,\SubBulletSymbol\, MySQL \,\SubBulletSymbol\, DB2}
         \end{Detail}
-        \Gap
-        \textbf{Webtechnologies:}
+        \BigGap
         \begin{Detail}
-            Tomcat Application Server \,\SubBulletSymbol\, Solr \,\SubBulletSymbol\, Windows Application Server \,\SubBulletSymbol\, Websphere Application Server \,\SubBulletSymbol\, OLingo OData API \,\SubBulletSymbol\, JBoss \,\SubBulletSymbol\, Weblogic Application Server \,\SubBulletSymbol\, IBM Websphere Commerce \,\SubBulletSymbol\, PHP \,\SubBulletSymbol\, JavaScript \,\SubBulletSymbol\, XSLT \,\SubBulletSymbol\, XML (XSD) Schema \,\SubBulletSymbol\, Ajax (Direct Web Remoting, JQuery) \,\SubBulletSymbol\, HTML/HTML5 \,\SubBulletSymbol\, CSS/CSS3
+            \settowidth{\mylen}{-----Webtechnologies:}
+            \indentedDetail{\textbf{Webtechnologies: }Tomcat Application Server \,\SubBulletSymbol\, Solr \,\SubBulletSymbol\, Windows Application Server \,\SubBulletSymbol\, 
+                Websphere Application Server \,\SubBulletSymbol\, OLingo OData API \,\SubBulletSymbol\, JBoss \,\SubBulletSymbol\, Weblogic Application Server \,\SubBulletSymbol\, 
+                IBM Websphere Commerce \,\SubBulletSymbol\, PHP \,\SubBulletSymbol\, JavaScript \,\SubBulletSymbol\, XSLT \,\SubBulletSymbol\, XML (XSD) Schema \,\SubBulletSymbol\, 
+                Ajax (Direct Web Remoting, JQuery) \,\SubBulletSymbol\, HTML/HTML5 \,\SubBulletSymbol\, CSS/CSS3
+            }
         \end{Detail}
-        \Gap
-        \textbf{Cloud Technologies:}
+        \BigGap
         \begin{Detail}
-            Amazon Web Services \,\SubBulletSymbol\, Salesforce.com \,\SubBulletSymbol\, Informatica \,\SubBulletSymbol\, GoCD (Continuous Delivery)
+            \settowidth{\mylen}{-----Cloud Technologies:}
+            \indentedDetail{\textbf{Cloud Technologies: }Amazon Web Services \,\SubBulletSymbol\, Salesforce.com \,\SubBulletSymbol\, Informatica \,\SubBulletSymbol\, GoCD (Continuous Delivery)}
         \end{Detail}
-        \Gap
-        \textbf{Development Tools:}
+        \BigGap
         \begin{Detail}
-            git \,\SubBulletSymbol\, Shell Script \,\SubBulletSymbol\, PowerShell \,\SubBulletSymbol\, JMeter \,\SubBulletSymbol\, Oracle Identity Manager \,\SubBulletSymbol\, Ansible
+            \settowidth{\mylen}{-----Development Tools:}
+            \indentedDetail{\textbf{Development Tools: }git \,\SubBulletSymbol\, Shell Script \,\SubBulletSymbol\, PowerShell \,\SubBulletSymbol\, JMeter \,\SubBulletSymbol\, Oracle Identity Manager \,\SubBulletSymbol\, Ansible}
         \end{Detail}
     \end{minipage}
 \end{minipage}

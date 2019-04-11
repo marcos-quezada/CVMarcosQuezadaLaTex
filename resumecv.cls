@@ -268,6 +268,11 @@ BoldItalicFont=LiberationSans-BoldItalic]
 \par%
 }
 
+%Macro: Hanging indent (Default lenght is '-- ')
+\newcommand{\indentedDetail}[1]{\par\noindent\hangindent=\mylen\hangafter=1 #1}
+\newlength{\mylen}
+\settowidth{\mylen}{-- }
+
 % Macro: Gap (vertical gap between items in the same section).
 \newcommand{\Gap}{\par\vspace{0.45mm}\par}
 
