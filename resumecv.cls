@@ -72,12 +72,12 @@
 
 % Geometry package for page margins.
 \RequirePackage[
-left=9mm,
-right=9mm,
-top=6mm,
-bottom=6mm,
+left=5mm,
+right=5mm,
+top=5mm,
+bottom=5mm,
 nohead,
-includefoot]{geometry}
+nofoot]{geometry}
 
 % PDF settings and properties.
 \RequirePackage{hyperref}
@@ -139,22 +139,19 @@ includefoot]{geometry}
 % and can be downloaded for free at <http://www.fontsquirrel.com/fonts/tinos>.
 % Symbol table: <http://www.fileformat.info/info/unicode/font/tinos/grid.htm>
 \setmainfont
-[Path=./Fonts/Tinos/,
-ItalicFont=Tinos-Italic,
-BoldFont=Tinos-Bold,
-BoldItalicFont=Tinos-BoldItalic]
-{Tinos-Regular.ttf}
+[Path=./Fonts/liberation/,
+ItalicFont=LiberationSans-Italic,
+BoldFont=LiberationSans-Bold,
+BoldItalicFont=LiberationSans-BoldItalic]
+{LiberationSans-Regular.ttf}
 
 % Secondary font: "GNU FreeFont".
 % The "GNU FreeFont" fonts are released under the
 % GNU General Public License Version 3, and can be downloaded
 % for free at <https://savannah.gnu.org/projects/freefont/>.
 \newcommand{\UseSecondaryFont}{\fontspec
-[Path=./Fonts/GNUFreeFont/,
-ItalicFont=FreeSerifItalic,
-BoldFont=FreeSerifBold,
-BoldItalicFont=FreeSerifBoldItalic]
-{FreeSerif.otf}}
+[Path=./Fonts/3270/]
+{3270Medium.ttf}}
 
 % Sans-serif font: Changed to "Tinos".
 \renewcommand{\sffamily}{\rmfamily}
@@ -176,6 +173,7 @@ BoldItalicFont=FreeSerifBoldItalic]
 \newcommand{\UseSubSectionFont}{\UseHeadingFont\fontsize{8.6pt}{10.3pt}\selectfont\bfseries}
 \newcommand{\UseDetailFont}{\normalfont\fontsize{8.6pt}{10.3pt}\selectfont}
 \newcommand{\UseWhiteNoteFont}{\UseHeadingFont\fontsize{8pt}{9.6pt}\selectfont\color{white}}
+\newcommand{\UseAltNoteFont}{\UseSecondaryFont\fontsize{8pt}{9.6pt}\selectfont}
 
 % Symbols (Unicode).
 % See: https://unicode-table.com/en/
@@ -275,6 +273,19 @@ BoldItalicFont=FreeSerifBoldItalic]
 
 % Macro: BigGap (big vertical gap between items in the same section).
 \newcommand{\BigGap}{\par\vspace{2.25mm}\par}
+
+% Macro: Name (main settings for name).
+\newcommand{\Name}[1]
+{
+    \par
+    {\UseTitleFont\color{teal}\MakeUppercase{#1}}%
+    \par
+}
+
+% Macro: NerdNote (main settings for name).
+\newenvironment{NerdNote}
+{\par\begingroup\UseAltNoteFont}
+{\par\endgroup\par}
 
 % Macro: Section (new section for Education, Research Experience, etc.).
 \newcommand{\Section}[1]

@@ -243,7 +243,9 @@
         (CENTER)      edge[->, bend left=16] (EDGBND_ASSGMNT);
 
         % Now, let us add some braces.
-        \draw[tuborg, thick, decoration={brace, mirror, raise=0.45cm}, decorate]
-        (-10,-3.75) -- (10,-3.75) node[below, midway,anchor=north,yshift=-0.40cm,font=\UseNoteFont]  {My Job @ ...};
+        \draw[tuborg, thick, decoration={brace, mirror, amplitude=0.25cm ,raise=0.45cm}, decorate]
+        (-10,-3.75) -- (10,-3.75) node[below, midway,anchor=north,yshift=-0.7cm,font=\UseNoteFont]  {\begin{NerdNote}
+            [](Company x, Candidate y) -> boolean { return x.interview(y).isHired()?true:false; };
+        \end{NerdNote}};
 
     \end{tikzpicture}
