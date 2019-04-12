@@ -1,4 +1,4 @@
-\documentclass[letterpaper,landscape,MMMyyyy,nonstopmode]{resumecv}
+\documentclass[a4paper,landscape,MMMyyyy,nonstopmode]{resumecv}
 % Class options:
 % a4paper, letterpaper, nonstopmode, draftmode
 % MMMyyyy, ddMMMyyyy, MMMMyyyy, ddMMMMyyyy, yyyyMMdd, yyyyMM, yyyy
@@ -23,6 +23,8 @@
 \newcommand{\CVTitle}{Marcos Quezada Pérez's CV}
 \newcommand{\CVNote}{CV compiled on {\today}}
 \newcommand{\CompanyName}{Acme GmbH}
+\newcommand{\LinkedInPage}{https://www.linkedin.com/in/marcos-quezada-pérez-22502b69}
+\newcommand{\XingPage}{https://www.xing.com/profile/Marcos_QuezadaPerez/cv}
 \newcommand{\CVWebpage}{http://www.example.com/~johndoe}
 
 % PDF settings and properties.
@@ -82,7 +84,7 @@ breaklinks}
 %%%%%%%%%%%%%%%
 
 \begin{minipage}{0.24\textwidth}
-    \begin{minipage}[t][0.24\textheight][t]{\textwidth}
+    \begin{minipage}[t][0.2\textheight][t]{\textwidth}
         \begin{flushleft}
             \Name{Marcos}
             \BigGap
@@ -98,17 +100,19 @@ breaklinks}
             \end{NerdNote}
         \end{flushleft}
     \end{minipage}
-    \begin{minipage}[c][0.20\textheight][b]{\textwidth\UseSubTitleFont}
+
+    \begin{minipage}[b][0.2\textheight][b]{\textwidth\UseSubTitleFont}
         \href{https://goo.gl/maps/dR9owVqLbk22}
         {Pionierstraße 37\newline
         Düsseldorf, Germany, 40215}\newline
         \href{mailto:quezad@gmail.com}
         {quezad@gmail.com}\newline
         +49\,(015)\,203-136012\newline
-        \href{\CVWebpage}
-        {\url{\CVWebpage}}
+        \href{\LinkedInPage}
+        {\url{\LinkedInPage}}
     \end{minipage}
-    \begin{minipage}[t][0.55\textheight][c]{\textwidth\UseNoteFont}
+
+    \begin{minipage}[b][0.32\textheight][b]{\textwidth\UseNoteFont}
         \begin{skillbox}{0.9}
             \textbf{Java / J2EE}
         \end{skillbox}
@@ -136,10 +140,11 @@ breaklinks}
     \end{minipage}
 \end{minipage}%\hfill{\color{teal}\vline width 0.005\textwidth}\hfill
 \begin{minipage}{0.75\textwidth}
-    \begin{minipage}[t][0.46\textheight][t]{\textwidth\UseSubSectionFont}
+    \begin{minipage}[t][0.52\textheight][t]{\textwidth\UseSubSectionFont}
         \includegraphics{ExperienceMap.tikz}
     \end{minipage}
-    \begin{minipage}[t][0.24\textheight][c]{\textwidth\UseSubSectionFont}
+    
+    \begin{minipage}[t][0.21\textheight][t]{\textwidth\UseSubSectionFont}
         \begin{minipage}[t]{0.45\textwidth}
             \Section{Education}
             \BigGap
@@ -171,52 +176,78 @@ breaklinks}
         \BigGap
         \BigGap
         \begin{minipage}[c]{\textwidth}
-            \Section{Languages}
-            \BigGap
-            \begin{Detail}
-                \BulletSymbol$\-$
-                Spanish: Native language.
-    
-                \Gap
-                \BulletSymbol$\-$
-                English: Fluent.
-    
-                \Gap
-                \BulletSymbol$\-$
-                German: Basic.
-            \end{Detail}
+            \begin{minipage}[t]{0.45\textwidth}
+                \Section{Languages}
+                \BigGap
+                \begin{Detail}
+                    \SubBulletSymbol$\-$
+                    Spanish: Native language
+                    \Gap
+                    \SubBulletSymbol$\-$
+                    English: Fluent
+                    \Gap
+                    \SubBulletSymbol$\-$
+                    German: Basic
+                \end{Detail}
+            \end{minipage}\hfill
+            \begin{minipage}[t]{0.45\textwidth}
+                \Section{Professional Affiliations}
+                \BigGap
+                \begin{Detail}
+                    Association for Computing Machinery \,\SubBulletSymbol\,
+                    Membership Number: 6076890   
+                    \Gap
+                \end{Detail}
+            \end{minipage}
         \end{minipage}
     \end{minipage}
-    \begin{minipage}[b][0.27\textheight][b]{\textwidth\UseSubSectionFont}
-        \begin{Detail}
-            \settowidth{\mylen}{-----Frameworks: }
-            \indentedDetail{\textbf{Frameworks: }Spring MVC framework \,\SubBulletSymbol\, Facebook Graph API \,\SubBulletSymbol\, Hibernate \,\SubBulletSymbol\, Oracle ADF \,\SubBulletSymbol\, SAP Master Data Management \,\SubBulletSymbol\, Oracle SOA Suite}
-        \end{Detail}
-        \BigGap
-        \begin{Detail}
-            \settowidth{\mylen}{-----Database Management Systems:}
-            \indentedDetail{\textbf{Database Management Systems: }Postgresql Server \,\SubBulletSymbol\, Microsoft SQL Server \,\SubBulletSymbol\, Oracle Database \,\SubBulletSymbol\, MySQL \,\SubBulletSymbol\, DB2}
-        \end{Detail}
-        \BigGap
-        \begin{Detail}
-            \settowidth{\mylen}{-----Webtechnologies:}
-            \indentedDetail{\textbf{Webtechnologies: }Tomcat Application Server \,\SubBulletSymbol\, Solr \,\SubBulletSymbol\, Windows Application Server \,\SubBulletSymbol\, 
-                Websphere Application Server \,\SubBulletSymbol\, OLingo OData API \,\SubBulletSymbol\, JBoss \,\SubBulletSymbol\, Weblogic Application Server \,\SubBulletSymbol\, 
-                IBM Websphere Commerce \,\SubBulletSymbol\, PHP \,\SubBulletSymbol\, JavaScript \,\SubBulletSymbol\, XSLT \,\SubBulletSymbol\, XML (XSD) Schema \,\SubBulletSymbol\, 
-                Ajax (Direct Web Remoting, JQuery) \,\SubBulletSymbol\, HTML/HTML5 \,\SubBulletSymbol\, CSS/CSS3
-            }
-        \end{Detail}
-        \BigGap
-        \begin{Detail}
-            \settowidth{\mylen}{-----Cloud Technologies:}
-            \indentedDetail{\textbf{Cloud Technologies: }Amazon Web Services \,\SubBulletSymbol\, Salesforce.com \,\SubBulletSymbol\, Informatica \,\SubBulletSymbol\, GoCD (Continuous Delivery)}
-        \end{Detail}
-        \BigGap
-        \begin{Detail}
-            \settowidth{\mylen}{-----Development Tools:}
-            \indentedDetail{\textbf{Development Tools: }git \,\SubBulletSymbol\, Shell Script \,\SubBulletSymbol\, PowerShell \,\SubBulletSymbol\, JMeter \,\SubBulletSymbol\, Oracle Identity Manager \,\SubBulletSymbol\, Ansible}
-        \end{Detail}
-    \end{minipage}
+\end{minipage}
+
+\begin{minipage}[b][0.24\textheight][b]{\textwidth\UseSubSectionFont}
+    
+    \begin{Detail}
+        \settowidth{\ReferenceLenght}{\MakeUppercase{\textbf{Database Management Systems: }}}
+        \settowidth{\mylen}{\MakeUppercase{\textbf{Frameworks: }}}
+        \addtolength{\ReferenceLenght}{-1\mylen}
+        \addtolength{\mylen}{\ReferenceLenght}
+        \indentedDetail{\MakeUppercase{\textbf{Frameworks: }}\hspace{\ReferenceLenght}Spring MVC framework \,\SubBulletSymbol\, Facebook Graph API \,\SubBulletSymbol\, Hibernate \,\SubBulletSymbol\, Oracle ADF \,\SubBulletSymbol\, SAP Master Data Management \,\SubBulletSymbol\, Oracle SOA Suite}
+    \end{Detail}
+    \BigGap
+    \begin{Detail}
+        \settowidth{\ReferenceLenght}{\MakeUppercase{\textbf{Database Management Systems: }}}
+        \settowidth{\mylen}{\MakeUppercase{\textbf{Database Management Systems: }}}
+        \addtolength{\ReferenceLenght}{-1\mylen}
+        \addtolength{\mylen}{\ReferenceLenght}
+        \indentedDetail{\MakeUppercase{\textbf{Database Management Systems: }}\hspace{\ReferenceLenght}Postgresql Server \,\SubBulletSymbol\, Microsoft SQL Server \,\SubBulletSymbol\, Oracle Database \,\SubBulletSymbol\, MySQL \,\SubBulletSymbol\, DB2}
+    \end{Detail}
+    \BigGap
+    \begin{Detail}
+        \settowidth{\ReferenceLenght}{\MakeUppercase{\textbf{Database Management Systems: }}}
+        \settowidth{\mylen}{\MakeUppercase{\textbf{Webtechnologies: }}}
+        \addtolength{\ReferenceLenght}{-1\mylen}
+        \addtolength{\mylen}{\ReferenceLenght}
+        \indentedDetail{\MakeUppercase{\textbf{Webtechnologies: }}\hspace{\ReferenceLenght}Tomcat Application Server \,\SubBulletSymbol\, Solr \,\SubBulletSymbol\, Windows Application Server \,\SubBulletSymbol\, 
+            Websphere Application Server \,\SubBulletSymbol\, OLingo OData API \,\SubBulletSymbol\, JBoss \,\SubBulletSymbol\, Weblogic Application Server \,\SubBulletSymbol\, 
+            IBM Websphere Commerce \,\SubBulletSymbol\, PHP \,\SubBulletSymbol\, JavaScript \,\SubBulletSymbol\, XSLT \,\SubBulletSymbol\, XML (XSD) Schema \,\SubBulletSymbol\, 
+            Ajax (Direct Web Remoting, JQuery) \,\SubBulletSymbol\, HTML/HTML5 \,\SubBulletSymbol\, CSS/CSS3
+        }
+    \end{Detail}
+    \BigGap
+    \begin{Detail}
+        \settowidth{\ReferenceLenght}{\MakeUppercase{\textbf{Database Management Systems: }}}
+        \settowidth{\mylen}{\MakeUppercase{\textbf{Cloud Technologies: }}}
+        \addtolength{\ReferenceLenght}{-1\mylen}
+        \addtolength{\mylen}{\ReferenceLenght}
+        \indentedDetail{\MakeUppercase{\textbf{Cloud Technologies: }}\hspace{\ReferenceLenght}Amazon Web Services \,\SubBulletSymbol\, Salesforce.com \,\SubBulletSymbol\, Informatica \,\SubBulletSymbol\, GoCD (Continuous Delivery)}
+    \end{Detail}
+    \BigGap
+    \begin{Detail}
+        \settowidth{\ReferenceLenght}{\MakeUppercase{\textbf{Database Management Systems: }}}
+        \settowidth{\mylen}{\MakeUppercase{\textbf{Development Tools: }}}
+        \addtolength{\ReferenceLenght}{-1\mylen}
+        \addtolength{\mylen}{\ReferenceLenght}
+        \indentedDetail{\MakeUppercase{\textbf{Development Tools: }}\hspace{\ReferenceLenght}git \,\SubBulletSymbol\, Shell Script \,\SubBulletSymbol\, PowerShell \,\SubBulletSymbol\, JMeter \,\SubBulletSymbol\, Oracle Identity Manager \,\SubBulletSymbol\, Ansible}
+    \end{Detail}
 \end{minipage}
 
 %\begin{adjustbox}{minipage=0.25\textwidth-2\fboxsep-2\fboxrule,cfbox=teal 3pt}\raggedright\UseSubTitleFont

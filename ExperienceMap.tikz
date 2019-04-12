@@ -4,33 +4,35 @@
 %%
 \begin{tikzpicture}[>=stealth',%
     decoration={brace},%
-    tuborg/.style={draw=teal, decorate},%
-    tubnode/.style={midway, right=2pt},][x=20cm,y=9.2cm]
+    tuborg/.style={draw=teal, align=center, decorate},%
+    tubnode/.style={midway, right=2pt},][x=21.52cm,y=9.2cm]
 %---
-\foreach \i in {-4,0} {
-    \draw[gray,very thin] (-10,\i) rectangle (10,\i+4);
-    \draw[gray,very thin] (-10,\i) rectangle (-9.5,\i+4);
+
+\draw[gray,very thin] (-10.76,-3.4) rectangle (10.76,4.6);
+
+\foreach \i in {-3.4,0.6} {
+    \draw[gray,very thin] (-10.76,\i) rectangle (-10.26,\i+4);
 }
 
-\foreach \i in {-6.25,-3,0.25,3.5,6.75}{
-    \draw[gray,very thin] (\i,-4) -- (\i,4);
+\foreach \i in {-6.76,-3.26,0.24,3.74,7.24}{
+    \draw[gray,very thin] (\i,-3.4) -- (\i,4.6);
 }
 
-\draw[white,fill=white] (-2,1) rectangle (2,-1);
+\draw[white,fill=white] (-2,2.1) rectangle (2,-0.9);
 
-\node[rotate=90,font=\sffamily] at (-9.75,-2.25) {Tasks};
-\node[rotate=90,font=\sffamily] at (-9.75,1.75) {Jobs};
+\node[rotate=90,font=\sffamily] at (-10.51,-1.4) {Tasks};
+\node[rotate=90,font=\sffamily] at (-10.51,2.6) {Jobs};
 
-\node[font=\sffamily] at (-8.1,3.75) {2018};
-\node[font=\sffamily] at (-4.81,3.75) {2017};
-\node[font=\sffamily] at (-1.52,3.75) {2016};
-\node[font=\sffamily] at (1.77,3.75) {2013};
-\node[font=\sffamily] at (5.06,3.75) {2007};
-\node[font=\sffamily] at (8.35,3.75) {2006};
+\node[font=\sffamily] at (-8.85,4.35) {2018};
+\node[font=\sffamily] at (-5.35,4.35) {2017};
+\node[font=\sffamily] at (-1.85,4.35) {2016};
+\node[font=\sffamily] at (1.17,4.35) {2013};
+\node[font=\sffamily] at (5.15,4.35) {2007};
+\node[font=\sffamily] at (8.65,4.35) {2006};
 
 %\draw[step=1cm,gray,very thin] (-10,-4.25) grid (10,4.25);
 
-        \node[state, fill=white] (CENTER) at (0,0){
+        \node[state, fill=white] (CENTER) at (0,0.6){
             \begin{tabular}{l}
                 \Entry
                 \textbf{Computer Systems} \\
@@ -38,7 +40,7 @@
             \end{tabular}
         };
 
-        \node[state] (DREI01_JOB) at (-7.88,2.75){
+        \node[state] (DREI01_JOB) at (-8.51,3.35){
             \begin{tabular}{l}
                 \Entry
                 Java Backed \\
@@ -69,7 +71,7 @@
         \node[state,
         right of=DREI01_JOB,
         anchor=center,
-        node distance=3.25cm] (QUANDOO_JOB){
+        node distance=3.5cm] (QUANDOO_JOB){
             \begin{tabular}{l}
                 \Entry
                 Java Backed \\
@@ -98,7 +100,7 @@
         \node[state,
         right of=QUANDOO_JOB,
         anchor=center,
-        node distance=3.25cm] (CAYAN_JOB){
+        node distance=3.5cm] (CAYAN_JOB){
             \begin{tabular}{l}
                 \Entry
                 Senior Software\\
@@ -129,7 +131,7 @@
 
         \node[state,
         right of=CAYAN_JOB,
-        node distance=3.25cm] (ACCN_JOB){
+        node distance=3.5cm] (ACCN_JOB){
             \begin{tabular}{l}
                 \Entry
                 Software Engineer,\\
@@ -162,7 +164,7 @@
 
         \node[state,
         right of=ACCN_JOB,
-        node distance=3.25cm,
+        node distance=3.5cm,
         yshift=0.15cm] (DTT_JOB){
             \begin{tabular}{l}
                 \Entry
@@ -195,7 +197,7 @@
 
         \node[state,
         right of=DTT_JOB,
-        node distance=3.25cm] (EDGBND_JOB){
+        node distance=3.5cm] (EDGBND_JOB){
             \begin{tabular}{l}
                 \Entry
                 Consultant\\
@@ -222,8 +224,8 @@
         };
 
         % draw the paths and and print some Text below/above the graph
-        \path (CENTER)  edge[->, bend left=18] (DREI01_JOB)
-        (CENTER)      edge[->, bend right=18] (DREI01_ASSGMNT)
+        \path (CENTER)  edge[->, bend left=15] (DREI01_JOB)
+        (CENTER)      edge[->, bend right=15] (DREI01_ASSGMNT)
         (CENTER)      edge[->, bend left=20] (QUANDOO_JOB)
         (CENTER)      edge[->, bend right=20] (QUANDOO_ASSGMNT)
         (CENTER)      edge[->] (CAYAN_JOB)
@@ -232,17 +234,16 @@
         (CENTER)      edge[->] (ACCN_ASSGMNT)
         (CENTER)      edge[->, bend right=20] (DTT_JOB)
         (CENTER)      edge[->, bend left=20] (DTT_ASSGMNT)
-        (CENTER)      edge[->, bend right=16] (EDGBND_JOB)
-        (CENTER)      edge[->, bend left=16] (EDGBND_ASSGMNT);
+        (CENTER)      edge[->, bend right=15] (EDGBND_JOB)
+        (CENTER)      edge[->, bend left=15] (EDGBND_ASSGMNT);
 
         % Now, let us add some braces.
         \draw[tuborg, thick, decoration={brace, mirror, amplitude=0.25cm ,raise=0.45cm}, decorate]
-        (-10,-3.75) -- (10,-3.75) node[below, midway,anchor=north,yshift=-0.7cm,font=\UseNoteFont,text width=20cm]  {\begin{NerdNote}
+        (-10.76,-3.15) -- (10.76,-3.15) node[below, midway,anchor=north,yshift=-0.7cm,font=\UseNoteFont,text width=21.52cm]  {\begin{NerdNote}
             int main()\{
-                vector<Candidate>\& market = Market::getCandidates();
-                myNewEmployer.fillOpening( {[=]}(Company myNewEmployer, Candidate me) -> \{ \\
-                    return company.getBestOption(*market, me); 
-                \}(Candidate::getInstance(``\CVAuthor''), Company::getInstance(``\CompanyName''));
+                Employer::fillOpening( {[=]}(Company myNewEmployer, Candidate me) -> \{ 
+                    return company.getBestOption(Market::getRest(), me); 
+                \}(Candidate::getInstance (\textcolor{airforceblue}{``\CVAuthor''}), Company::getInstance(\textcolor{airforceblue}{``\CompanyName''}));
             \}
         \end{NerdNote}};
 

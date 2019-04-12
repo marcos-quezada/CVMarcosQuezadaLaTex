@@ -268,10 +268,17 @@ BoldItalicFont=LiberationSans-BoldItalic]
 \par%
 }
 
-%Macro: Hanging indent (Default lenght is '-- ')
+\definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
+
+% Utility: Macro to get the lenght of an element for better positioning
+\def\convertto#1#2{\strip@pt\dimexpr #2*65536/\number\dimexpr 1#1}
+
+% Macro: Hanging indent (Default lenght is '-- ')
 \newcommand{\indentedDetail}[1]{\par\noindent\hangindent=\mylen\hangafter=1 #1}
 \newlength{\mylen}
 \settowidth{\mylen}{-- }
+\newlength{\ReferenceLenght}
+\settowidth{\ReferenceLenght}{-- }
 
 % Macro: Gap (vertical gap between items in the same section).
 \newcommand{\Gap}{\par\vspace{0.45mm}\par}
