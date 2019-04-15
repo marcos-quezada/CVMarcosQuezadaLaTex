@@ -14,6 +14,8 @@
     decorations.pathreplacing,decorations.pathmorphing,decorations.pathreplacing,shapes,%
     matrix,shapes.symbols}
 
+%\usepackage{showframe}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PREAMBLE.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -79,11 +81,12 @@ breaklinks}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
+
 %%%%%%%%%%%%%%%
 % TITLE BLOCK %
 %%%%%%%%%%%%%%%
 
-\begin{minipage}{0.24\textwidth}
+\begin{minipage}{0.25\textwidth}
     \begin{minipage}[t][0.2\textheight][t]{\textwidth}
         \begin{flushleft}
             \Name{Marcos}
@@ -96,23 +99,37 @@ breaklinks}
                 \SubBulletSymbol$\-$
                 Analitic Thinker\\
                 \SubBulletSymbol$\-$
-                Early Technology Adopter
+                Early Technology Adopter\\
+                \SubBulletSymbol$\-$
+                Devices Tinkering \& Open Source Enthusiast\\
+                \SubBulletSymbol$\-$
+                Avid Technology Blogs Reader\\
+                \SubBulletSymbol$\-$
+                Algorithms \& programming concepts scholar\\
+                \SubBulletSymbol$\-$
+                2${\pi}$ rad Nerd
             \end{NerdNote}
         \end{flushleft}
     \end{minipage}
 
     \begin{minipage}[b][0.2\textheight][b]{\textwidth\UseSubTitleFont}
         \href{https://goo.gl/maps/dR9owVqLbk22}
-        {Pionierstraße 37\newline
-        Düsseldorf, Germany, 40215}\newline
+        {\faHome $\>$ Pionierstraße 37}
+        \newline
+        \settowidth{\mylen}{\faHome $\>$ }
+        \href{https://goo.gl/maps/dR9owVqLbk22}
+        {\hspace{\mylen}Düsseldorf, Germany, 40215}
+        \newline
         \href{mailto:quezad@gmail.com}
-        {quezad@gmail.com}\newline
-        +49\,(015)\,203-136012\newline
+        {\Letter $\>$ quezad@gmail.com}
+        \newline
+        \Telefon $\>$ +49\,(015)\,203-136012
+        \newline
         \href{\LinkedInPage}
-        {\url{\LinkedInPage}}
+        {\faLinkedin  $\>$ \url{linkedin.com/marcos-quezada-pérez}}
     \end{minipage}
 
-    \begin{minipage}[b][0.32\textheight][b]{\textwidth\UseNoteFont}
+    \begin{minipage}[b][0.33\textheight][b]{\textwidth\UseNoteFont}
         \begin{skillbox}{0.9}
             \textbf{Java / J2EE}
         \end{skillbox}
@@ -203,18 +220,20 @@ breaklinks}
     \end{minipage}
 \end{minipage}
 
-\begin{minipage}[b][0.24\textheight][b]{\textwidth\UseSubSectionFont}
+\begin{minipage}[t][0.25\textheight][b]{\textwidth\UseSubSectionFont}
     
     \begin{Detail}
-        \settowidth{\ReferenceLenght}{\MakeUppercase{\textbf{Database Management Systems: }}}
+        \setlength{\ReferenceLenght}{0.25\textwidth}
         \settowidth{\mylen}{\MakeUppercase{\textbf{Frameworks: }}}
         \addtolength{\ReferenceLenght}{-1\mylen}
         \addtolength{\mylen}{\ReferenceLenght}
-        \indentedDetail{\MakeUppercase{\textbf{Frameworks: }}\hspace{\ReferenceLenght}Spring MVC framework \,\SubBulletSymbol\, Facebook Graph API \,\SubBulletSymbol\, Hibernate \,\SubBulletSymbol\, Oracle ADF \,\SubBulletSymbol\, SAP Master Data Management \,\SubBulletSymbol\, Oracle SOA Suite}
+        \indentedDetail{\MakeUppercase{\textbf{Frameworks: }}\hspace{\ReferenceLenght}Spring MVC framework \,\SubBulletSymbol\, Facebook Graph API \,\SubBulletSymbol\, Hibernate \,\SubBulletSymbol\, Oracle ADF \,\SubBulletSymbol\, SAP Master Data Management 
+            \,\SubBulletSymbol\, Oracle SOA Suite \,\SubBulletSymbol\, Mithril.js \,\SubBulletSymbol\, Eclipse Vert.x
+        }
     \end{Detail}
     \BigGap
     \begin{Detail}
-        \settowidth{\ReferenceLenght}{\MakeUppercase{\textbf{Database Management Systems: }}}
+        \setlength{\ReferenceLenght}{0.25\textwidth}
         \settowidth{\mylen}{\MakeUppercase{\textbf{Database Management Systems: }}}
         \addtolength{\ReferenceLenght}{-1\mylen}
         \addtolength{\mylen}{\ReferenceLenght}
@@ -222,31 +241,32 @@ breaklinks}
     \end{Detail}
     \BigGap
     \begin{Detail}
-        \settowidth{\ReferenceLenght}{\MakeUppercase{\textbf{Database Management Systems: }}}
+        \setlength{\ReferenceLenght}{0.25\textwidth}
         \settowidth{\mylen}{\MakeUppercase{\textbf{Webtechnologies: }}}
         \addtolength{\ReferenceLenght}{-1\mylen}
         \addtolength{\mylen}{\ReferenceLenght}
-        \indentedDetail{\MakeUppercase{\textbf{Webtechnologies: }}\hspace{\ReferenceLenght}Tomcat Application Server \,\SubBulletSymbol\, Solr \,\SubBulletSymbol\, Windows Application Server \,\SubBulletSymbol\, 
-            Websphere Application Server \,\SubBulletSymbol\, OLingo OData API \,\SubBulletSymbol\, JBoss \,\SubBulletSymbol\, Weblogic Application Server \,\SubBulletSymbol\, 
-            IBM Websphere Commerce \,\SubBulletSymbol\, PHP \,\SubBulletSymbol\, JavaScript \,\SubBulletSymbol\, XSLT \,\SubBulletSymbol\, XML (XSD) Schema \,\SubBulletSymbol\, 
-            Ajax (Direct Web Remoting, JQuery) \,\SubBulletSymbol\, HTML/HTML5 \,\SubBulletSymbol\, CSS/CSS3
+        \indentedDetail{\MakeUppercase{\textbf{Webtechnologies: }}\hspace{\ReferenceLenght}Websphere Application Server \,\SubBulletSymbol\, Solr \,\SubBulletSymbol\, Windows Application Server \,\SubBulletSymbol\, Tomcat Application Server 
+            \,\SubBulletSymbol\, OLingo OData API \,\SubBulletSymbol\, JBoss \,\SubBulletSymbol\, Weblogic Application Server \,\SubBulletSymbol\, IBM Websphere Commerce \,\SubBulletSymbol\, PHP \,\SubBulletSymbol\, JavaScript \,\SubBulletSymbol\, XSLT 
+            \,\SubBulletSymbol\, XML (XSD) Schema \,\SubBulletSymbol\, Ajax (Direct Web Remoting, JQuery) \,\SubBulletSymbol\, HTML/HTML5 \,\SubBulletSymbol\, CSS/CSS3 \,\SubBulletSymbol\, Node.js 
         }
     \end{Detail}
     \BigGap
     \begin{Detail}
-        \settowidth{\ReferenceLenght}{\MakeUppercase{\textbf{Database Management Systems: }}}
+        \setlength{\ReferenceLenght}{0.25\textwidth}
         \settowidth{\mylen}{\MakeUppercase{\textbf{Cloud Technologies: }}}
         \addtolength{\ReferenceLenght}{-1\mylen}
         \addtolength{\mylen}{\ReferenceLenght}
-        \indentedDetail{\MakeUppercase{\textbf{Cloud Technologies: }}\hspace{\ReferenceLenght}Amazon Web Services \,\SubBulletSymbol\, Salesforce.com \,\SubBulletSymbol\, Informatica \,\SubBulletSymbol\, GoCD (Continuous Delivery)}
+        \indentedDetail{\MakeUppercase{\textbf{Cloud Technologies: }}\hspace{\ReferenceLenght}Amazon Web Services \,\SubBulletSymbol\, Salesforce.com \,\SubBulletSymbol\, Informatica \,\SubBulletSymbol\, GoCD (Continuous Delivery) \,\SubBulletSymbol\, Digital Ocean}
     \end{Detail}
     \BigGap
     \begin{Detail}
-        \settowidth{\ReferenceLenght}{\MakeUppercase{\textbf{Database Management Systems: }}}
+        \setlength{\ReferenceLenght}{0.25\textwidth}
         \settowidth{\mylen}{\MakeUppercase{\textbf{Development Tools: }}}
         \addtolength{\ReferenceLenght}{-1\mylen}
         \addtolength{\mylen}{\ReferenceLenght}
-        \indentedDetail{\MakeUppercase{\textbf{Development Tools: }}\hspace{\ReferenceLenght}git \,\SubBulletSymbol\, Shell Script \,\SubBulletSymbol\, PowerShell \,\SubBulletSymbol\, JMeter \,\SubBulletSymbol\, Oracle Identity Manager \,\SubBulletSymbol\, Ansible}
+        \indentedDetail{\MakeUppercase{\textbf{Development Tools: }}\hspace{\ReferenceLenght}git \,\SubBulletSymbol\, Shell Script \,\SubBulletSymbol\, PowerShell \,\SubBulletSymbol\, JMeter \,\SubBulletSymbol\, Oracle Identity Manager \,\SubBulletSymbol\, Ansible
+            \,\SubBulletSymbol\, npm \,\SubBulletSymbol\, Gradle \,\SubBulletSymbol\, Apache Maven \,\SubBulletSymbol\, Apache Ant \,\SubBulletSymbol\, webpack
+        }
     \end{Detail}
 \end{minipage}
 

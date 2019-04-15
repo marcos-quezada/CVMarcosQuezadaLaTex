@@ -70,6 +70,9 @@
 % Use article class as the base class.
 \LoadClass[10pt,oneside]{article}
 
+\usepackage{marvosym}
+\usepackage{fontawesome}
+
 % Geometry package for page margins.
 \RequirePackage[
 left=5mm,

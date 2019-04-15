@@ -1,0 +1,127 @@
+\documentclass[a4paper,nonstopmode,11pt]{article}
+
+% PDF settings and properties.
+\usepackage{hyperref}
+% Run in non-stop mode.
+\usepackage{lmodern}
+\usepackage{marvosym}
+\usepackage{graphicx}
+\usepackage{fontspec}
+
+% Font: Use "Tinos" as the main typeface (\textnormal{}, \normalfont).
+% The "Tinos" fonts are released under the Apache License Version 2.0,
+% and can be downloaded for free at <http://www.fontsquirrel.com/fonts/tinos>.
+% Symbol table: <http://www.fileformat.info/info/unicode/font/tinos/grid.htm>
+\setmainfont
+[Path=./Fonts/liberation/,
+ItalicFont=LiberationSans-Italic,
+BoldFont=LiberationSans-Bold,
+BoldItalicFont=LiberationSans-BoldItalic]
+{LiberationSans-Regular.ttf}
+
+% Secondary font: "GNU FreeFont".
+% The "GNU FreeFont" fonts are released under the
+% GNU General Public License Version 3, and can be downloaded
+% for free at <https://savannah.gnu.org/projects/freefont/>.
+\newcommand{\UseSecondaryFont}{\fontspec
+[Path=./Fonts/3270/]
+{3270Medium.ttf}}
+
+% Sans-serif font: Changed to "Tinos".
+\renewcommand{\sffamily}{\rmfamily}
+
+% Typewriter (monospace) font: Changed to "Tinos".
+\renewcommand{\ttfamily}{\rmfamily}
+
+% Small caps font: Changed to "Tinos".
+\renewcommand{\scshape}{\rmfamily}
+%\renewcommand{\textsc}[1]{\textbf{\MakeUppercase{#1}}}
+
+\pagestyle{empty}
+
+\usepackage[scale=0.775]{geometry}
+\setlength{\parindent}{0pt}
+\addtolength{\parskip}{6pt}
+
+\def\firstname{Marcos}
+\def\familyname{Quezada Pérez}
+\def\FileAuthor{\firstname \familyname}
+\def\FileTitle{\firstname \familyname's cover letter}
+\def\FileSubject{Cover letter}
+\def\FileKeyWords{\firstname \familyname, Cover letter}
+
+\renewcommand{\ttdefault}{pcr}
+
+\hypersetup{
+pdftitle={\FileTitle},
+pdfauthor={\FileAuthor},
+pdfsubject={\FileSubject},
+pdfcreator={XeLaTeX},
+pdfproducer={\LaTeX},
+pdfkeywords={},
+unicode=true,
+bookmarks=true,
+bookmarksopen=true,
+pdfstartview=FitH,
+pdfpagelayout=OneColumn,
+pdfpagemode=UseOutlines,
+hidelinks,
+breaklinks}
+
+
+\begin{document}
+\sffamily   % for use with a résumé using sans serif fonts;
+%\rmfamily  % for use with a résumé using serif fonts;
+\hfill%
+\begin{minipage}[t]{.6\textwidth}
+\raggedleft%
+{\bfseries Marcos Quezada Pérez}\\[.35ex]
+\small\itshape%
+Pionierstraße 37\\
+40215, Düsseldorf, Germany\\[.35ex]
+\Telefon~+49015203136012\\
+\Letter~\href{mailto:quezad@gmail.com}{quezad@gmail.com}
+\end{minipage}\\[1em]
+%
+\begin{minipage}[t]{.4\textwidth}
+\raggedright%
+{\bfseries Company XYZ}\\[.35ex]
+\small\itshape%
+street and number\\
+postcode city
+\end{minipage}
+\hfill % US style
+%\\[1em] % UK style
+\begin{minipage}[t]{.4\textwidth}
+\raggedleft % US style
+\today
+%April 6, 2006 % US informal style
+%05/04/2006 % UK formal style
+\end{minipage}\\[2em]
+\raggedright
+Dear HR Manager,\\[1.5em]
+%
+With a Bachelor’s Degree and Master’s Degree in computer science, numerous years of hands-on experience creating and implementing software applications, and the ability to troubleshoot and solve problems in a timely and accurate manner, I confidently express my interest in your posting on LinkedIn for an experienced software engineer.
+
+I have been involved in numerous large-scale software releases and understand the importance of time management and open communication. While it may be easy to focus on the technical side of work, I’ve found that being able to express concerns, roadblocks, and alternative solutions to colleagues of varying technical backgrounds has been invaluable in my professional development.
+
+Over the course of my career as a software engineer I have:
+
+Become a certified Software Development Associate and Professional.
+Led two successful software releases as the Java, team leader.
+Increased team efficiency by implementing Agile methodologies.
+I truly believe in continued education and research and continue to seek new software and methods to assist with product development. I hope to bring my knowledge, and future knowledge, to your organization.
+
+Attached is a copy of my resume that further explains my background and technical skills. I can be reached anytime via my cell phone, 555-555-5555 or via email at name@email.com. Thank you for your time and consideration. I look forward to speaking with you more about this opportunity.
+
+%Yours sincerely,\\[2em] % if the opening is "Dear Mr(s) Doe,"
+%Yours faithfully,\\[2em] % if the opening is "Dear Sir or Madam,"
+Best regards,
+%
+%\includegraphics[scale=0.75]{signature_blue}\\
+{\bfseries Marcos Quezada Pérez}\\
+%
+\vfill%
+{\slshape Enclosure}
+{\slshape Attachment: curriculum vit\ae{}}
+\end{document}
