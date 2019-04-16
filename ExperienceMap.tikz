@@ -242,7 +242,7 @@
         (-10.76,-3.15) -- (10.76,-3.15) node[below, midway,anchor=north,yshift=-0.7cm,font=\UseNoteFont,text width=21.52cm]  {\begin{NerdNote}
             int main()\{
                 Employer::fillOpening( {[=]}(Company myNewEmployer, Candidate me) -> \{ 
-                    return company.getBestOption(Market::getRest(), me); 
+                    return myNewEmployer.getBestOption(Market::getTheRest(), me); 
                 \}(Candidate::getInstance (\textcolor{airforceblue}{``\CVAuthor''}), Company::getInstance(\textcolor{airforceblue}{``\CompanyName''}));
             \}
         \end{NerdNote}};
