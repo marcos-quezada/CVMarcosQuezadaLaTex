@@ -8,17 +8,18 @@
     tubnode/.style={midway, right=2pt},][x=21.52cm,y=9.2cm]
 %---
 
-\draw[gray,very thin] (-10.76,-3.4) rectangle (10.76,4.6);
+%\draw[gray,very thin] (-10.76,-3.4) rectangle (10.76,4.6);
 
 \foreach \i in {-3.4,0.6} {
     \draw[gray,very thin] (-10.76,\i) rectangle (-10.26,\i+4);
+    \draw[gray,very thin] (-10.76, \i) rectangle (10.76, \i+4);
 }
 
 \foreach \i in {-6.76,-3.26,0.24,3.74,7.24}{
     \draw[gray,very thin] (\i,-3.4) -- (\i,4.6);
 }
 
-\draw[white,fill=white] (-2,2.1) rectangle (2,-0.9);
+\draw[white,fill=white] (-3.2,2.6) rectangle (3.7,-0.8);
 
 \node[rotate=90,font=\sffamily] at (-10.51,-1.4) {Tasks};
 \node[rotate=90,font=\sffamily] at (-10.51,2.6) {Jobs};
