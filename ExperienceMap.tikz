@@ -24,12 +24,12 @@
 \node[rotate=90,font=\sffamily] at (-10.51,-1.4) {Tasks};
 \node[rotate=90,font=\sffamily] at (-10.51,2.6) {Jobs};
 
-\node[font=\sffamily] at (-8.85,4.35) {2018};
-\node[font=\sffamily] at (-5.35,4.35) {2017};
-\node[font=\sffamily] at (-1.85,4.35) {2016};
-\node[font=\sffamily] at (1.17,4.35) {2013};
-\node[font=\sffamily] at (5.15,4.35) {2007};
-\node[font=\sffamily] at (8.65,4.35) {2005};
+\node[font=\sffamily] at (-8.55,4.35) {2018};
+\node[font=\sffamily] at (-5.05,4.35) {2017};
+\node[font=\sffamily] at (-1.55,4.35) {2016};
+\node[font=\sffamily] at (1.95,4.35) {2013};
+\node[font=\sffamily] at (5.45,4.35) {2007};
+\node[font=\sffamily] at (8.95,4.35) {2005};
 
 %\draw[step=1cm,gray,very thin] (-10,-4.25) grid (10,4.25);
 
