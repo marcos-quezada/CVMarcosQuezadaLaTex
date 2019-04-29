@@ -71,7 +71,7 @@
 \LoadClass[10pt,oneside]{article}
 
 \usepackage{marvosym}
-\usepackage{fontawesome}
+%\usepackage{fontawesome}
 
 % Geometry package for page margins.
 \RequirePackage[
@@ -184,6 +184,14 @@ BoldItalicFont=LiberationSans-BoldItalic]
 \newcommand{\SubBulletSymbol}{{\normalfont\fontsize{6}{7.2}\selectfont\raisebox{0.17em}{\char"25CF}}}
 \newcommand{\SubSubBulletSymbol}{{\normalfont\fontsize{6}{7.2}\selectfont\raisebox{0.17em}{\char"25CB}}}
 \newcommand{\TildeSymbol}{{\normalfont\char"007E}}
+
+% Fix for missing font awesome on linux
+\newfontfamily{\FAFR}[Path=./Fonts/fontawesome/]{Font Awesome 5 Free-Regular-400.otf}
+\newfontfamily{\FAFS}[Path=./Fonts/fontawesome/]{Font Awesome 5 Free-Solid-900.otf}
+\newfontfamily{\FAB}[Path=./Fonts/fontawesome/]{Font Awesome 5 Brands-Regular-400.otf}
+
+\def\faLinkedin{\FAB \symbol{"F0E1}} % Linkedin
+\def\faHome{\FAFS \symbol{"F015}} % Home
 
 % Headers and footers: Blank header, page number in footer.
 \AtEndDocument{\null\label{LastPage}}
