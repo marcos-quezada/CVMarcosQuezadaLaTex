@@ -44,7 +44,7 @@
         \node[state] (DREI01_JOB) at (-8.51,3.35){
             \begin{tabular}{l}
                 \Entry
-                Java Backed \\
+                Java Backend \\
                 Developer\\
                 \href{https://drei01.com/web/}
                 {\textbf{Drei01 GmbH}}\\
@@ -182,7 +182,7 @@
         anchor=north] (DTT_ASSGMNT){
             \begin{tabular}{l}
                 \SubBulletSymbol$\-$
-                Cloud Comuting\\
+                Cloud Computing\\
                 \SubBulletSymbol$\-$
                 BPM\\
                 \SubBulletSymbol$\-$
