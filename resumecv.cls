@@ -191,6 +191,8 @@ BoldItalicFont=LiberationSans-BoldItalic]
 \newfontfamily{\FAB}[Path=./Fonts/fontawesome/]{Font Awesome 5 Brands-Regular-400.otf}
 
 \def\faLinkedin{\FAB \symbol{"F0E1}} % Linkedin
+\def\faXing{\FAB \symbol{"F168}} % Xing
+\def\faGitlab{\FAB \symbol{"F296}} % Gitlab
 \def\faHome{\FAFS \symbol{"F015}} % Home
 
 % Headers and footers: Blank header, page number in footer.
