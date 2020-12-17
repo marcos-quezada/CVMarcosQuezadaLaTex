@@ -11,8 +11,9 @@
 
     // Add the IDs of extensions you want installed when the container is created.
     "extensions": [
-        "james-yu.latex-workshop",
-    ],
+		"james-yu.latex-workshop",
+		"golf1052.base16-generator"
+	],
 
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [],

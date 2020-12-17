@@ -178,6 +178,21 @@ BoldItalicFont=LiberationSans-BoldItalic]
 \newcommand{\UseWhiteNoteFont}{\UseHeadingFont\fontsize{8pt}{9.6pt}\selectfont\color{white}}
 \newcommand{\UseAltNoteFont}{\UseSecondaryFont\fontsize{8pt}{9.6pt}\selectfont}
 
+
+\def\theLetterSpace{-0.1em}
+\def\extraWordSpace{-0.1em}
+\newcommand\spaceout[2][\theLetterSpace]{%
+  \def\LocalLetterSpace{#1}\expandafter\spaceouthelpA#2 \relax\relax}
+\def\spaceouthelpA#1 #2\relax{%
+  \spaceouthelpB#1\relax\relax%
+  \ifx\relax#2\else\kern\extraWordSpace\ \kern\LocalLetterSpace\spaceouthelpA#2\relax\fi
+}
+\def\spaceouthelpB#1#2\relax{%
+  #1%
+  \ifx\relax#2\else
+    \kern\LocalLetterSpace\spaceouthelpB#2\relax%
+  \fi
+}
 % Symbols (Unicode).
 % See: https://unicode-table.com/en/
 \newcommand{\BulletSymbol}{{\normalfont\fontsize{6.5}{7.8}\selectfont\raisebox{0.17em}{\char"25A0}}}
@@ -282,6 +297,7 @@ BoldItalicFont=LiberationSans-BoldItalic]
 }
 
 \definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
+\definecolor{tangerine}{RGB}{242, 145, 0}
 
 % Utility: Macro to get the lenght of an element for better positioning
 \def\convertto#1#2{\strip@pt\dimexpr #2*65536/\number\dimexpr 1#1}
@@ -304,6 +320,13 @@ BoldItalicFont=LiberationSans-BoldItalic]
 {
     \par
     {\UseTitleFont\color{teal}\MakeUppercase{#1}}%
+    \par
+}
+
+\newcommand{\NameAlt}[1]
+{
+    \par
+    {\UseTitleFont\color{tangerine}\MakeUppercase{#1}}%
     \par
 }
 

@@ -10,11 +10,11 @@
 \usepackage{tikzscale}
 %\usepackage{filecontents}
 \usepackage{tikz}
-\usetikzlibrary{arrows,automata,positioning,calc,trees,positioning,chains,shapes.geometric,%
+\usetikzlibrary{arrows,arrows.meta,automata,positioning,calc,trees,positioning,chains,shapes.geometric,%
     decorations.pathreplacing,decorations.pathmorphing,decorations.pathreplacing,shapes,%
     matrix,shapes.symbols}
-
 %\usepackage{showframe}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PREAMBLE.
@@ -24,7 +24,7 @@
 \newcommand{\CVAuthor}{Marcos Quezada Pérez}
 \newcommand{\CVTitle}{Marcos Quezada Pérez's CV}
 \newcommand{\CVNote}{CV compiled on {\today}}
-\newcommand{\CompanyName}{Klarna AB}
+\newcommand{\CompanyName}{statista}
 \newcommand{\LinkedInPage}{https://www.linkedin.com/in/marcos-quezada-pérez-22502b69}
 \newcommand{\XingPage}{https://www.xing.com/profile/Marcos_QuezadaPerez/cv}
 \newcommand{\CVWebpage}{http://www.example.com/~johndoe}
@@ -51,6 +51,16 @@ breaklinks}
 \newcommand{\Code}[1]{\mbox{\textbf{#1}}}
 \newcommand{\CodeCommand}[1]{\mbox{\textbf{\textbackslash{#1}}}}
 
+\newcommand{\Dimension}{7} % number of dimensions (config option)
+\newcommand{\Units}{5} % number of scale units (config option)
+
+\newdimen\Radius % maximal diagram radius (config option)
+\Radius=3.5cm 
+\newdimen\LabelsRadius % radius to put dimension labels (config option)
+\LabelsRadius=4cm
+
+\newcommand{\Angle}{360/\Dimension} % calculated angle between dimension axes  
+
 \tikzset{
     state/.style={
         rectangle,
@@ -76,7 +86,6 @@ breaklinks}
     enlarge bottom finally by=-1mm
 }
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% ACTUAL DOCUMENT.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -86,149 +95,145 @@ breaklinks}
 %%%%%%%%%%%%%%%
 % TITLE BLOCK %
 %%%%%%%%%%%%%%%
-
+% Begin left info section
 \begin{minipage}{0.25\textwidth}
-    \begin{minipage}[t][0.2\textheight][t]{\textwidth}
-        \begin{flushleft}
-            \Name{Marcos}
-            \BigGap
-            \Name{Quezada}
-            \Name{Pérez}
-            \BigGap
-            \BigGap
-            \begin{NerdNote}
-                \SubBulletSymbol$\-$
-                Analitic Thinker\\
-                \SubBulletSymbol$\-$
-                Early Technology Adopter\\
-                \SubBulletSymbol$\-$
-                Devices Tinkering \& Open Source Enthusiast\\
-                \SubBulletSymbol$\-$
-                Avid Technology Blogs Reader\\
-                \SubBulletSymbol$\-$
-                Algorithms \& programming concepts scholar\\
-                \SubBulletSymbol$\-$
-                2${\pi}$ rad Nerd
-            \end{NerdNote}
-        \end{flushleft}
-    \end{minipage}
-
-    \begin{minipage}[b][0.2\textheight][b]{\textwidth\UseSubTitleFont}
-        \href{https://goo.gl/maps/dR9owVqLbk22}
-        {\faHome $\-$ \UseSubTitleFont Pionierstraße 37}
-        \newline
-        \settowidth{\mylen}{\faHome $\-$ }
-        \href{https://goo.gl/maps/dR9owVqLbk22}
-        {\hspace{\mylen}Düsseldorf, Germany, 40215}
-        \newline
-        \href{mailto:quezad@gmail.com}
-        {\Letter $\>$ quezad@gmail.com}
-        \newline
-        \Telefon $\>$ +49\,(015)\,203-136012
-        \newline
-        \href{\LinkedInPage}
-        {\faLinkedin \UseSubTitleFont $\>$ goto linkedin/marcos-quezada-pérez;}
-        \newline
-        \href{\XingPage}
-        {\faXing \UseSubTitleFont $\>$ goto xing/Marcos\_QuezadaPerez;}
-        \newline
-        \href{\GitlabPage}
-        {\faGitlab \UseSubTitleFont $\-$ goto gitlab/quezad;}
-    \end{minipage}
-
-    \begin{minipage}[b][0.33\textheight][b]{\textwidth\UseNoteFont}
-        \begin{skillbox}{0.9}
-            \textbf{Java / J2EE}
-        \end{skillbox}
-        \begin{skillbox}{0.81}
-            \textbf{C\#}
-        \end{skillbox}
-        \begin{skillbox}{0.9}
-            \textbf{C / C++}
-        \end{skillbox}
-        \begin{skillbox}{0.36}
-            \textbf{Python}
-        \end{skillbox}
-        \begin{skillbox}{0.54}
-            \textbf{.NET}
-        \end{skillbox}
-        \begin{skillbox}{0.18}
-            \textbf{groovy}
-        \end{skillbox}
-        \begin{skillbox}{0.27}
-            \textbf{Objective-C}
-        \end{skillbox}
-        \begin{skillbox}{0.9}
-            \textbf{JavaScript}
-        \end{skillbox}
-    \end{minipage}
-\end{minipage}%\hfill{\color{teal}\vline width 0.005\textwidth}\hfill
+    \begin{flushleft}
+        \Name{Marcos}
+        \BigGap
+        \NameAlt{Quezada}
+        \Name{Pérez}
+        \BigGap
+        \BigGap
+        \begin{NerdNote}
+            Candidate main()\{ Employer::fillOpening(\\
+            $\-$ [](Company myNewEmployer, Candidate me) -> \{ \\
+            $\-$ $\-$ return myNewEmployer.getBestOption( \\
+            $\-$ $\-$ Market::getTheRest().add(me));\}( \\
+            $\-$ $\-$ $\-$ new Candidate(\textcolor{airforceblue}{``\CVAuthor''}), \\
+            $\-$ $\-$ $\-$ new Company(\textcolor{airforceblue}{``\CompanyName''})); \\
+        \}
+        \end{NerdNote}
+    \end{flushleft}
+\end{minipage}%
 \begin{minipage}{0.75\textwidth}
-    \begin{minipage}[t][0.52\textheight][t]{\textwidth\UseSubSectionFont}
-        \includegraphics{ExperienceMap.tikz}
-    \end{minipage}
-    
-    \begin{minipage}[t][0.21\textheight][t]{\textwidth\UseSubSectionFont}
-        \begin{minipage}[t]{0.45\textwidth}
-            \Section{Education}
-            \BigGap
-            \DatestampY{2000} --
-            \DatestampY{2005}
-            \Gap
-            \begin{Detail}
-                IPN – Escuela Superior de Cómputo  
-                Mexico City, Mexico\\
-                B Eng in Computer Science\\
-                Final Project: Interactive 3D Software simulated wind tunnel. Multiple views, dynamic obstacle placements and analytic features
-            \end{Detail}
-        \end{minipage}\hfill
-        \begin{minipage}[t]{0.45\textwidth}
-            \Section{Certificates}
-            \BigGap
-            \DatestampY{2006}
-            \Gap
-            \begin{Detail}
-                Sun Certified Java Programmer, Java Standard Edition 5.0            
-            \end{Detail}
-            \BigGap
-            \DatestampY{2013}
-            \Gap
-            \begin{Detail}
-                TOGAF 9 Foundations level \,\SubBulletSymbol\, Registration Number: 77670            
-            \end{Detail}
-        \end{minipage}
+    \includegraphics{ExperienceTimeline.tikz}
+\end{minipage}%
+
+\begin{minipage}[t][0.51\textheight][t]{0.25\textwidth\UseSubTitleFont}
+    \BigGap
+    \BigGap
+    \href{https://goo.gl/maps/dR9owVqLbk22}
+    {\faHome $\-$ \UseSubTitleFont Pionierstraße 37}
+    \newline
+    \settowidth{\mylen}{\faHome $\-$ }
+    \href{https://goo.gl/maps/dR9owVqLbk22}
+    {\hspace{\mylen}Düsseldorf, Germany, 40215}
+    \newline
+    \href{mailto:quezad@gmail.com}
+    {\Letter $\>$ quezad@gmail.com}
+    \newline
+    \Telefon $\>$ +49\,(015)\,203-136012
+    \newline
+    \href{\LinkedInPage}
+    {\faLinkedin \UseSubTitleFont $\>$ goto linkedin/marcos-quezada-pérez;}
+    \newline
+    \href{\XingPage}
+    {\faXing \UseSubTitleFont $\>$ goto xing/Marcos\_QuezadaPerez;}
+    \newline
+    \href{\GitlabPage}
+    {\faGitlab \UseSubTitleFont $\-$ goto gitlab/quezad;}
+    \BigGap
+    \BigGap
+    \Section{Interests}
+    \Gap
+    \begin{Detail}
+        \SubBulletSymbol$\-$
+        Working on the Skillerator prototype for the \\ $\-$ $\-$ $\-$ Global Legal Hackaton \#GLH2020 finals.
+        \Gap
+        \SubBulletSymbol$\-$
+        Keeping my {\fontfamily{cmr}\selectfont \LaTeX} resume evolving \\ $\-$ $\-$ $\-$ (and preferably in one page).
+        \Gap
+        \SubBulletSymbol$\-$
+        Building the alpha version of a babyphone \\ $\-$ $\-$ $\-$ based on Raspberry Pi and Arduino.
+        \Gap
+        \SubBulletSymbol$\-$
+        Writing development environment containers \\ $\-$ $\-$ $\-$ for Visual Studio Code. 
+        \Gap
+        \SubBulletSymbol$\-$
+        Repurposing an old computer as host \\ $\-$ $\-$ $\-$  for a local kubernetes cluster. 
+        \Gap
+    \end{Detail} 
+\end{minipage}%
+\begin{minipage}[t][0.51\textheight][t]{0.75\textwidth\UseSubSectionFont}
+    \begin{minipage}[t]{0.5\textwidth}
         \BigGap
         \BigGap
-        \begin{minipage}[c]{\textwidth}
-            \begin{minipage}[t]{0.45\textwidth}
-                \Section{Languages}
-                \BigGap
-                \begin{Detail}
-                    \SubBulletSymbol$\-$
-                    Spanish: Native language
-                    \Gap
-                    \SubBulletSymbol$\-$
-                    English: Fluent
-                    \Gap
-                    \SubBulletSymbol$\-$
-                    German: Basic
-                \end{Detail}
-            \end{minipage}\hfill
-            \begin{minipage}[t]{0.45\textwidth}
-                \Section{Professional Affiliations}
-                \BigGap
-                \begin{Detail}
-                    Association for Computing Machinery \,\SubBulletSymbol\,
-                    Membership Number: 6076890   
-                    \Gap
-                \end{Detail}
-            \end{minipage}
-        \end{minipage}
-    \end{minipage}
+        \Section{Programming Languages}
+        \BigGap
+        \begin{NerdNote}
+            \{\spaceout{scale:\{1:'learning', 2:'rusty', 3:'use daily', 4:'go to guy', 5:'created it'\}\}
+            }
+        \end{NerdNote}
+        \Gap      
+        \includegraphics{SkillsRadarMap.tikz}
+    \end{minipage}%       
+    \begin{minipage}[t]{0.5\textwidth\UseSubSectionFont}
+        \BigGap
+        \BigGap
+        \Section{Education}
+        \Gap
+        \DatestampY{2000} --
+        \DatestampY{2005}
+        \Gap
+        \begin{Detail}
+            IPN – Escuela Superior de Cómputo  
+            Mexico City, Mexico\\
+            B Eng in Computer Science\\
+            Final Project: Interactive 3D Software simulated wind tunnel. Multiple views, dynamic obstacle placements and analytic features
+        \end{Detail}
+        \BigGap
+        \BigGap
+        \Section{Languages}
+        \Gap
+        \begin{Detail}
+            \SubBulletSymbol$\-$
+            Spanish: Native language
+            \Gap
+            \SubBulletSymbol$\-$
+            English: Fluent
+            \Gap
+            \SubBulletSymbol$\-$
+            German: Intermediate
+        \end{Detail}
+        \BigGap
+        \BigGap
+        \Section{Certificates}
+        \Gap
+        \DatestampY{2006}
+        \Gap
+        \begin{Detail}
+            Sun Certified Java Programmer, Java Standard Edition 5.0            
+        \end{Detail}
+        \Gap
+        \DatestampY{2013}
+        \Gap
+        \begin{Detail}
+            TOGAF 9 Foundations level \,\SubBulletSymbol\, 
+            Registration Number: 77670            
+        \end{Detail}
+        \BigGap
+        \BigGap
+        \Section{Professional Affiliations}
+        \Gap
+        \begin{Detail}
+            Association for Computing Machinery \,\SubBulletSymbol\,
+            Membership Number: 6076890   
+            \Gap
+        \end{Detail}
+    \end{minipage}%
 \end{minipage}
 
-\begin{minipage}[t][0.25\textheight][b]{\textwidth\UseSubSectionFont}
-    
+\begin{minipage}[t][0.18\textheight][b]{\textwidth}
     \begin{Detail}
         \setlength{\ReferenceLenght}{0.25\textwidth}
         \settowidth{\mylen}{\MakeUppercase{\textbf{Frameworks: }}}
@@ -277,24 +282,6 @@ breaklinks}
     \end{Detail}
 \end{minipage}
 
-%\begin{adjustbox}{minipage=0.25\textwidth-2\fboxsep-2\fboxrule,cfbox=teal 3pt}\raggedright\UseSubTitleFont
-%\href{https://goo.gl/maps/dR9owVqLbk22}
-%{Pionierstraße 37\newline
-%Düsseldorf, Germany, 40215}\newline
-%\href{mailto:quezad@gmail.com}
-%{quezad@gmail.com}\newline
-%+49\,(015)\,203-136012\newline
-%\href{\CVWebpage}
-%{\url{\CVWebpage}}
-%\end{adjustbox}
-%\begin{minipage}{0.75\textwidth\raggedleft\UseTitleFont}\raggedleft
-%\CVAuthor
-%\end{minipage}
-%\\[-2]
-%\hfill{\color{teal}\vline width 0.005\textwidth}\hfill
-%\begin{minipage}{0.995\textwidth\raggedright}
-%\BigGap
-%\lipsum
-%\end{minipage}
+
 
 \end{document}

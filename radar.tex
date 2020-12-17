@@ -1,0 +1,104 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+
+\begin{document}
+
+\newcommand{\Dimension}{7} % number of dimensions (config option)
+\newcommand{\Units}{7} % number of scale units (config option)
+
+\newdimen\Radius % maximal diagram radius (config option)
+\Radius=3.5cm 
+\newdimen\LabelsRadius % radius to put dimension labels (config option)
+\LabelsRadius=4cm
+
+\newcommand{\Angle}{360/\Dimension} % calculated angle between dimension axes  
+
+\begin{figure}[htbp]
+ \centering
+
+\begin{tikzpicture}[scale=1]
+  \path (0:0cm) coordinate (O); % define coordinate for origin
+
+  % draw the spiderweb
+  \foreach \X in {1,...,\Dimension}{
+    \draw (\X*\Angle:0) -- (\X*\Angle:\Radius);
+  }
+
+  \foreach \Y in {0,...,\Units}{
+    \foreach \X in {1,...,\Dimension}{
+      \path (\X*\Angle:\Y*\Radius/\Units) coordinate (D\X-\Y);
+      \fill (D\X-\Y) circle (1pt);
+    }
+    \draw [opacity=0.3] (0:\Y*\Radius/\Units) \foreach \X in {1,...,\Dimension}{
+        -- (\X*\Angle:\Y*\Radius/\Units)
+    } -- cycle;
+  }
+
+  % define labels for each dimension axis (names config option)
+  \path (1*\Angle:\LabelsRadius) node (L1) {\tiny Security};
+  \path (2*\Angle:\LabelsRadius) node (L2) {\tiny Content Quality};
+  \path (3*\Angle:\LabelsRadius) node (L3) {\tiny Performance};
+  \path (4*\Angle:\LabelsRadius) node (L4) {\tiny Stability};
+  \path (5*\Angle:\LabelsRadius) node (L5) {\tiny Usability};
+  \path (6*\Angle:\LabelsRadius) node (L6) {\tiny Generality};
+  \path (7*\Angle:\LabelsRadius) node (L7) {\tiny Popularity};
+
+  % for each sample case draw a path around the web along concrete values
+  % for the individual dimensions. Each node along the path is labeled
+  % with an identifier using the following scheme:
+  %
+  %   D<d>-<v>, dimension <d> a number between 1 and \D (#dimensions) and
+  %             value <v> a number between 0 and \U (#scale units)
+  %
+  % The paths will be drawn half-opaque, so that overlapping parts will be
+  % rendered in a composite color.
+
+  % Example Case 1 (red)
+  %
+  % D1 (Security): 0/7; D2 (Content Quality): 5/7; D3 (Performance): 0/7;
+  % D4 (Stability): 6/7; D5 (Usability): 0/7; D6 (Generality): 5/7;
+  % D7 (Popularity): 0/7
+  \draw [color=red,line width=1.5pt,opacity=0.5]
+    (D1-0) --
+    (D2-5) --
+    (D3-0) --
+    (D4-6) --
+    (D5-0) --
+    (D6-5) --
+    (D7-0) -- cycle;
+
+  % Example Case 2 (green)
+  %
+  % D1 (Security): 2/7; D2 (Content Quality): 2/7; D3 (Performance): 5/7;
+  % D4 (Stability): 1/7; D5 (Usability): 4/7; D6 (Generality): 1/7;
+  % D7 (Popularity): 7/7
+  \draw [color=green,line width=1.5pt,opacity=0.5]
+    (D1-2) --
+    (D2-2) --
+    (D3-5) --
+    (D4-1) --
+    (D5-4) --
+    (D6-1) --
+    (D7-7) -- cycle;
+
+  % Example Case 3 (blue)
+  %
+  % D1 (Security): 1/7; D2 (Content Quality): 7/7; D3 (Performance): 4/7;
+  % D4 (Stability): 4/7; D5 (Usability): 3/7; D6 (Generality): 5/7;
+  % D7 (Popularity): 2/7
+  \draw [color=blue,line width=1.5pt,opacity=0.5]
+    (D1-1) --
+    (D2-7) --
+    (D3-4) --
+    (D4-4) --
+    (D5-3) --
+    (D6-5) --
+    (D7-2) -- cycle;
+
+\end{tikzpicture}
+\caption{Spiderweb Diagram (\Dimension~Dimensions, \Units-Notch Scale, 3 Samples)}
+\label{fig:spiderweb}
+\end{figure}
+
+\end{document}
