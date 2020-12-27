@@ -57,20 +57,27 @@ breaklinks}
 \newdimen\Radius % maximal diagram radius (config option)
 \Radius=3.5cm 
 \newdimen\LabelsRadius % radius to put dimension labels (config option)
-\LabelsRadius=4cm
+\LabelsRadius=4.3cm
 
 \newcommand{\Angle}{360/\Dimension} % calculated angle between dimension axes  
 
 \tikzset{
     state/.style={
-        rectangle,
-        rounded corners,
-        draw=teal, very thick,
-        minimum height=2em,
-        inner sep=0.5pt,
+        inner sep=0pt,
+        text depth=2.35cm,
         align=left,
-        text width=3cm,
-        font=\UseNoteFont
+        text width=2.7cm,
+        font=\UseNoteFont\color{tangerine},
+        anchor=north
+        },
+}
+
+\tikzset{
+    date/.style={
+        align=center,
+        minimum width=13mm,
+        font=\UseNoteFont,
+        fill=white
         },
 }
 
