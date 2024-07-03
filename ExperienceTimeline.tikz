@@ -9,14 +9,24 @@
     \definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
 %---
     \node[state,
-            font=\UseNoteFont\color{teal}] (PKWRK_JOB) at (-8.85,3.25){
+            font=\UseNoteFont\color{teal}] (STAT_JOB) at (-9.25,3.25){
+        Senior Software Developer\\
+        \href{https://www.statista.com/}
+        {\textbf{Statista GmbH}}\\
+        Hamburg, Germany
+    };
+
+    \node[state,
+            right of=STAT_JOB,
+            node distance=2.85cm] (PKWRK_JOB){
         Senior Software Developer\\
         \href{https://www.peakwork.com/}
         {\textbf{Peakwork AG}}\\
         Düsseldorf, Germany
-    };
+    };    
 
     \node[state,
+            font=\UseNoteFont\color{teal},
             right of=PKWRK_JOB,
             node distance=2.85cm] (DREI01_JOB){
         Java Backend Developer\\
@@ -26,9 +36,8 @@
     };
 
     \node[state,
-            font=\UseNoteFont\color{teal},
             right of=DREI01_JOB,
-            node distance=2.75cm] (QUANDOO_JOB){
+            node distance=2.45cm] (QUANDOO_JOB){
         Java Backed Developer\\
         \href{https://www.quandoo.de}
         {\textbf{Quandoo GmbH}}\\
@@ -36,8 +45,9 @@
     };
 
     \node[state,
+            font=\UseNoteFont\color{teal},
             right of=QUANDOO_JOB,
-            node distance=2.75cm] (CAYAN_JOB){
+            node distance=2.65cm] (CAYAN_JOB){
         Senior Software Engineer\\
         \href{http://www.cayan.com}
         {\textbf{Cayan}}\\
@@ -45,9 +55,8 @@
     };
 
     \node[state,
-            font=\UseNoteFont\color{teal},
             right of=CAYAN_JOB,
-            node distance=2.95cm] (ACCN_JOB){
+            node distance=2.65cm] (ACCN_JOB){
         Software Engineer,Team Lead\\
         \href{https://www.accenture.com/us-en}
         {\textbf{Accenture}}\\
@@ -55,8 +64,9 @@
     };
 
     \node[state,
+            font=\UseNoteFont\color{teal},
             right of=ACCN_JOB,
-            node distance=3cm] (DTT_JOB){
+            node distance=2.85cm] (DTT_JOB){
         Consultant\\
         \href{https://www2.deloitte.com/mx/es.html}
         {\textbf{Deloitte}}\\
@@ -64,9 +74,8 @@
     };
 
     \node[state,
-            font=\UseNoteFont\color{teal},
             right of=DTT_JOB,
-            node distance=2.95cm] (EDGBND_JOB){
+            node distance=2.85cm] (EDGBND_JOB){
         Consultant\\
         \href{http://edgebound.com/}
         {\textbf{Edgebound}}\\
@@ -75,6 +84,20 @@
 
     \node[state,
             font=\UseNoteFont\color{teal},
+            below of=STAT_JOB,
+            yshift=-2cm] (STAT_ASSGMNT){
+        \SubBulletSymbol$\-$
+        AWS Serverless\\
+        \SubBulletSymbol$\-$
+        RESTful APIs\\
+        \SubBulletSymbol$\-$
+        Microservices\\
+        \SubBulletSymbol$\-$
+        Domain-driven\\
+        $\>$ $\-$ applications\\
+    };
+
+    \node[state,
             below of=PKWRK_JOB,
             yshift=-2cm] (PKWRK_ASSGMNT){
         \SubBulletSymbol$\-$
@@ -89,6 +112,7 @@
     };
 
     \node[state,
+            font=\UseNoteFont\color{teal},
             below of=DREI01_JOB,
             yshift=-2cm] (DREI01_ASSGMNT){
         \SubBulletSymbol$\-$
@@ -103,7 +127,6 @@
     };
 
     \node[state,
-            font=\UseNoteFont\color{teal},
             below of=QUANDOO_JOB,
             yshift=-2cm] (QUANDOO_ASSGMNT){
         \SubBulletSymbol$\-$
@@ -117,6 +140,7 @@
     };
     
     \node[state,
+            font=\UseNoteFont\color{teal},
             below of=CAYAN_JOB,
             yshift=-2cm] (CAYAN_ASSGMNT){
         \SubBulletSymbol$\-$
@@ -133,7 +157,6 @@
     };
 
     \node[state,
-            font=\UseNoteFont\color{teal},
             below of=ACCN_JOB,
             yshift=-2cm] (ACCN_ASSGMNT){
         \SubBulletSymbol$\-$
@@ -151,6 +174,7 @@
     };
 
     \node[state,
+            font=\UseNoteFont\color{teal},
             below of=DTT_JOB,
             yshift=-2cm] (DTT_ASSGMNT){
         \SubBulletSymbol$\-$
@@ -167,7 +191,6 @@
     };
 
     \node[state,
-            font=\UseNoteFont\color{teal},
             below of=EDGBND_JOB,
             yshift=-2cm] (EDGBND_ASSGMNT){
         \SubBulletSymbol$\-$
@@ -180,21 +203,24 @@
         UX Implementation\\
     };
 
-    \draw[draw=teal, line width=6pt] (10.75,1.1) -- (7.05,1.1);
-    \draw[draw=tangerine, line width=6pt] (7.05,1.1) -- (4.05,1.1);
-    \draw[draw=teal, line width=6pt] (4.05,1.1) -- (1,1.1);
-    \draw[draw=tangerine, line width=6pt] (1,1.1) -- (-1.8,1.1);
-    \draw[draw=teal, line width=6pt] (-1.8,1.1) -- (-4.5,1.1);
-    \draw[draw=tangerine, line width=6pt] (-4.5,1.1) -- (-7.25,1.1);
-    \draw[-{Triangle[length=2mm, width=4mm]}, draw=teal, line width=6pt] (-7.25,1.1) -- (-10.65,1.1);
+    \draw[draw=teal, line width=6pt] (10.75,1.1) -- (9.9,1.1);
+    \draw[draw=tangerine, line width=6pt] (9.9,1.1) -- (7.1,1.1);
+    \draw[draw=teal, line width=6pt] (7.1,1.1) -- (4.8,1.1);
+    \draw[draw=tangerine, line width=6pt] (4.8,1.1) -- (1.7,1.1);
+    \draw[draw=teal, line width=6pt] (1.7,1.1) -- (-1.4,1.1);
+    \draw[draw=tangerine, line width=6pt] (-1.4,1.1) -- (-4.1,1.1);
+    \draw[draw=teal, line width=6pt] (-4.1,1.1) -- (-6.2,1.1);
+    \draw[draw=tangerine, line width=6pt] (-6.2,1.1) -- (-8.9,1.1);
+    \draw[-{Triangle[length=2mm, width=4mm]}, draw=teal, line width=6pt] (-8.9,1.1) -- (-10.65,1.1);
 
     \node[date] at(9.9,1.1) {07.2005};
     \node[date] at(7.1,1.1) {09.2007};
-    \node[date] at(4.1,1.1) {09.2013};
-    \node[date] at(1,1.1) {04.2016};
-    \node[date] at(-1.8,1.1) {05.2017};
-    \node[date] at(-4.5,1.1) {03.2018};
-    \node[date] at(-7.3,1.1) {09.2019};
+    \node[date] at(4.8,1.1) {09.2013};
+    \node[date] at(1.7,1.1) {04.2016};
+    \node[date] at(-1.4,1.1) {05.2017};
+    \node[date] at(-4,1.1) {03.2018};
+    \node[date] at(-6.2,1.1) {09.2019};
+    \node[date] at(-8.9,1.1) {05.2021};
     
      
 \end{tikzpicture}
