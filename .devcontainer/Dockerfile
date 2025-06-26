@@ -59,4 +59,4 @@ RUN apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Install only the packages you need.
-RUN tlmgr install marvosym hyphenat datetime2 tracklang xltxtra realscripts tcolorbox pgf environ trimspaces tikzscale xstring caption
+RUN tlmgr install marvosym hyphenat datetime2 tracklang xltxtra realscripts tcolorbox pgf environ trimspaces tikzscale xstring caption pifont
